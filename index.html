@@ -32,20 +32,12 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            text-align: center;
+            text-align: left; /* Texte wieder linksbündig */
         }
-        .content p {
+        .content p, .content ul {
             margin-bottom: 20px;
         }
-        .content a {
-            color: #333;
-            text-decoration: none;
-        }
-        .content a:hover {
-            text-decoration: underline;
-        }
         ul {
-            text-align: left;
             margin-left: 40px;
         }
         li {
@@ -56,7 +48,7 @@
             margin-top: 40px;
         }
         .recent-publication img {
-            max-width: 200px; /* Größe des Covers anpassen */
+            max-width: 200px;
             height: auto;
         }
     </style>
@@ -99,7 +91,7 @@
         <h2>Recent Publication</h2>
         <!-- Buchcover und Link zur DOI -->
         <a href="https://doi.org/10.1515/9783111334059" target="_blank">
-            <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
+            <img src="https://example.com/cover.jpg" alt="Book Cover">
         </a>
         <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">DOI: 10.1515/9783111334059</a></p>
     </div>

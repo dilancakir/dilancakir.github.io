@@ -32,22 +32,24 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
+            text-align: center; /* Zentriert den Text */
+        }
+        .content p {
+            margin-bottom: 20px;
+        }
+        .content a {
+            color: #333;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            text-align: left; /* Listenelemente bleiben linksbündig */
+            margin-left: 40px; /* Einrückung für Bulletpoints */
         }
         li {
             margin-bottom: 10px;
-        }
-        .social-links {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #333;
-        }
-        .social-links a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -62,8 +64,7 @@
         <a href="conferences">Organised Conferences</a>
     </nav>
 
-    <!-- Social Media Links (nur Text) -->
-    <div class="social-links">
+    <div class="social-links" style="text-align: center; margin-top: 20px;">
         <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
         <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
         <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>

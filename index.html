@@ -26,42 +26,75 @@
         }
         h1 {
             text-align: center;
-            margin-top: 20px; /*Abstand oben*/
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #333;
         }
         .content {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
             text-align: left;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .content p, .content ul {
             margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #444;
         }
         ul {
             margin-left: 40px;
+            padding-left: 20px;
         }
         li {
-            margin-bottom: 8px; /* Verkleinerter Abstand zwischen den Bulletpoints */
+            margin-bottom: 12px;
+        }
+        .recent-publication-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .recent-publication-section h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .recent-publications {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
         }
         .recent-publication {
             text-align: center;
-            margin-top: 40px;
         }
         .recent-publication img {
-            max-width: 200px;
-            height: auto;
+            max-width: 150px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        /* Social Media & Contact Links oben, fett und zentriert */
+        .recent-publication a {
+            text-decoration: none;
+            font-size: 1.1em;
+            color: #0073e6;
+        }
+        .recent-publication a:hover {
+            text-decoration: underline;
+        }
         .social-links {
             text-align: center;
             font-weight: bold;
-            margin-top: 20px; /* Abstand vor den Social Media*/
-            margin-bottom: 10px; /* Verkleinerter Abstand zum Namen */
+            margin-top: 20px;
+            margin-bottom: 30px;
         }
         .social-links a {
             color: black;
             margin: 0 15px;
             text-decoration: none;
+            font-size: 1.1em;
         }
         .social-links a:hover {
             text-decoration: underline;
@@ -81,9 +114,9 @@
 
     <!-- Social Media & Contact -->
     <div class="social-links">
-        <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>  
-        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>  
-        <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>  
+        <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+        <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
         <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
     </div>
 
@@ -101,29 +134,28 @@
             <li>Digital literature</li>
             <li>Digital humanities</li>
         </ul>
-
-        </ul>
     </div>
 
     <!-- Recent Publication Section -->
-    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center;">
-    <div class="recent-publication">
+    <div class="recent-publication-section">
         <h2>Recent Publication</h2>
-        <!-- Buchcover und Link zur DOI -->
-        <a href="https://doi.org/10.1515/9783111334059" target="_blank">
-            <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover" style="width: 150px;">
-        </a>
-        <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
-    </div>
-    
-    <div class="recent-publication">
-        <!-- Poster und Link zur DOI -->
-        <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
-            <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster" style="width: 150px;">
-        </a>
-        <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
-    </div>
-</div>
+        <div class="recent-publications">
+            <div class="recent-publication">
+                <!-- Buchcover und Link zur DOI -->
+                <a href="https://doi.org/10.1515/9783111334059" target="_blank">
+                    <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
+                </a>
+                <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
+            </div>
 
+            <div class="recent-publication">
+                <!-- Poster und Link zur DOI -->
+                <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
+                    <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
+                </a>
+                <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

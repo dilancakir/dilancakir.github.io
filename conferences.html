@@ -5,6 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organised Conferences</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --link-color: #0073e6;
+            --card-bg: #fff;
+            --nav-bg: #333;
+            --nav-link-color: white;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--nav-link-color);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .conference {
+            margin-bottom: 20px;
+            border-left: 4px solid var(--link-color);
+            padding-left: 15px;
+        }
+
+        .conference p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,17 +75,59 @@
         <a href="publications">Publications</a>
         <a href="talks">Talks</a>
         <a href="readings">Readings & Moderations</a>
-         <a href="teaching">Teaching</a>
+        <a href="teaching">Teaching</a>
         <a href="conferences">Organised Conferences</a>
     </nav>
 
     <div class="content">
-        <h1>Organisierte Konferenzen</h1>
-        <p>Hier kannst du die Konferenzen auflisten, die du organisiert hast:</p>
-        <ul>
-            <li>Konferenz 1: Titel, Ort, Jahr</li>
-            <li>Konferenz 2: Titel, Ort, Jahr</li>
-        </ul>
+        <h1>Organised Conferences</h1>
+
+        <div class="conference">
+            <p><strong>Jahrestagung des Arbeitskreises "Politische Ästhetiken"</strong></p>
+            <p>Literaturforum im Brecht-Haus, Berlin, 22.-23. Mai 2025</p>
+            <p>(co-organised with Charlotte Rathjen)</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Games Canon & Games History</strong></p>
+            <p>Workshop in cooperation with the DLA Marbach, Freie Universität Berlin, AG Games und Universität Freiburg, 13. Februar 2024</p>
+            <p>(co-organised with Anna Kinder and Andreas Rauscher)</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Krieg und Frieden in der Literatur und anderen Medien</strong></p>
+            <p>Nachwuchstagung der Deutschen Schillergesellschaft, German Literature Archive Marbach, 23.-24. November 2023</p>
+            <p>(co-organised with Junge Deutsche Schillergesellschaft)</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Literature Data and Digital Literature.</strong></p>
+            <p>An international summer school of the Marbach Weimar Wolfenbüttel Research Association in partnership with the project textklang (University of Stuttgart), German Literature Archive Marbach, 31. Juli - 11. August 2023</p>
+            <p>(co-organised with Anna Kinder, Felix Dieterle, Rebecca Sturm)</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Games & Literature.</strong></p>
+            <p>International interdisciplinary conference, German Literature Archive Marbach, 28.-30. Juni 2023</p>
+            <p>(co-organised with Anna Kinder, in cooperation with: European Federation of Game Archives, Museums and Preservation Projects (EFGAMP e.V.), DIGAREC – Digital Games Research Center of the University of Potsdam, the Computer Games Museum Berlin, and the Foundation for Digital Games Culture)</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>(Literarische) Einsamkeitsreflexionen.</strong></p>
+            <p>Nachwuchstagung der Deutschen Schillergesellschaft, German Literature Archive Marbach, 3.-4. November 2022</p>
+            <p>(co-organised with Viola Völlm (University of Stuttgart/DLA Marbach), Martin Kuhn (University of Stuttgart/DLA Marbach), Felix Lempp (University of Hamburg), Nadine Redmer (University of Stuttgart), Merisa Taranis (University of Stuttgart), and Dominik Wabersich (University of Tübingen))</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Games: Collecting, archiving, accessibility.</strong></p>
+            <p>Workshop in cooperation with the Foundation for Digital Games Culture, German Literature Archive Marbach, 24. Juni 2022</p>
+        </div>
+
+        <div class="conference">
+            <p><strong>Verstehen verstehen. Sprache und Text.</strong></p>
+            <p>Nachwuchstagung der Exzellenzcluster-Initiative Verstehen verstehen der Universitäten Stuttgart und Tübingen, Universität Stuttgart, 15. Februar 2018</p>
+            <p>(co-organised with Asrai Soos and Sandra Muss, both University of Stuttgart)</p>
+        </div>
     </div>
 </body>
 </html>

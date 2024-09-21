@@ -50,29 +50,23 @@
 
         .hero {
             background-color: var(--bg-color);
-            width: 100%; /* Über die ganze Seite */
-            padding: 10px 0; /* Weniger Höhe */
-            box-shadow: 0 4px 12px var(--shadow-color);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        .hero-content {
-            max-width: 600px; /* Begrenzte Breite des Textes */
-            margin: 0 auto; /* Zentriert den Text innerhalb des Balkens */
-            text-align: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 3em;
             margin: 0;
             color: var(--text-color);
         }
 
         .social-links {
             text-align: center;
-            margin-bottom: 10px; /* Weniger Abstand */
+            margin-bottom: 20px;
         }
 
         .social-links a {
@@ -91,23 +85,41 @@
             margin: 30px auto;
             padding: 20px;
             background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px var(--shadow-color);
+            transition: transform 0.3s;
         }
 
-        .content p,
-        .content ul {
+        .content:hover {
+            transform: translateY(-5px);
+        }
+
+        .content h2, .content h3 {
+            color: var(--link-color);
+            border-bottom: 2px solid var(--link-color);
+            padding-bottom: 5px;
+        }
+
+        .content p, .content ul {
             margin-bottom: 20px;
             font-size: 1.1em;
+            line-height: 1.6;
         }
 
-        ul {
+        .content ul {
             margin-left: 20px;
             padding-left: 20px;
         }
 
-        li {
+        .content li {
             margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content li::marker {
+            font-size: 1.2em;
+            color: var(--highlight-color);
         }
 
         /* Publikationen */
@@ -168,35 +180,31 @@
     </nav>
 
     <div class="hero">
-        <!-- Inhalt des Balkens -->
-        <div class="hero-content">
-            <div class="social-links">
-                <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-                <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-                <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-                <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
-            </div>
-
-            <h1>Dîlan Canan Çakir</h1>
+        <div class="social-links">
+            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
+            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
         </div>
+        <h1>Dîlan Canan Çakir</h1>
     </div>
 
     <div class="content">
-        <p>Postdoc @ Freie Universität Berlin <a href="https://www.temporal-communities.de">Cluster of Excellence "Temporal Communities"</a>.</p>
-        <p>Here you will find information about my publications, teaching, talks, readings, and conferences that I have organised.</p>
+        <h2>Über mich</h2>
+        <p>Ich bin Postdoc an der <a href="https://www.temporal-communities.de" target="_blank">Freien Universität Berlin</a> im <strong>Cluster of Excellence "Temporal Communities"</strong>.</p>
+        <p>Hier finden Sie Informationen zu meinen Publikationen, Lehrveranstaltungen, Vorträgen, Lesungen und den Konferenzen, die ich organisiert habe.</p>
 
-        <p><strong>Research interests:</strong></p>
+        <h3>Forschungsschwerpunkte</h3>
         <ul>
-            <li>German literature 📚</li>
-            <li>activism and literature ✊</li>
-            <li>theater studies 🎭</li>
-            <li>game studies and literature 🎮</li>
-            <li>digital literature 💻</li>
-            <li>digital humanities 💾</li>
+            <li><strong>German literature</strong> 📚</li>
+            <li><strong>Activism and literature</strong> ✊</li>
+            <li><strong>Theater studies</strong> 🎭</li>
+            <li><strong>Game studies and literature</strong> 🎮</li>
+            <li><strong>Digital literature</strong> 💻</li>
+            <li><strong>Digital humanities</strong> 💾</li>
         </ul>
     </div>
 
-    <!-- Publikationen -->
     <div class="recent-publications-section">
         <h2>Recent Publications</h2>
         <div class="recent-publications">

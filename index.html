@@ -50,29 +50,30 @@
 
         .hero {
             background-color: var(--bg-color);
-            height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: var(--text-color);
             position: sticky;
-            top: 0; /* Fixiert den Abschnitt beim Scrollen oben */
+            top: 0;
             z-index: 999;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px var(--shadow-color); /* Optionaler Schatteneffekt */
+            padding: 10px 0; /* Weniger Höhe für eine kompakte Anzeige */
+            max-width: 600px; /* Maximale Breite begrenzt */
+            margin: 0 auto; /* Zentriert den Bereich */
+            box-shadow: 0 4px 12px var(--shadow-color);
             background-color: #f4f4f9; /* Hintergrundfarbe des sticky Teils */
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             margin: 0;
             color: var(--text-color);
         }
 
         .social-links {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Weniger Abstand */
         }
 
         .social-links a {

@@ -139,5 +139,19 @@
             }
         });
     </script>
+.cv-section {
+    margin-bottom: 30px;
+}
+
+.cv-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.cv-section strong {
+    font-weight: bold;
+    color: var(--link-color); /* Oder eine andere Farbe, um wichtige Infos hervorzuheben */
+}
 </body>
 </html>

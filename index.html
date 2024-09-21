@@ -50,19 +50,18 @@
 
         .hero {
             background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
+            width: 100%; /* Über die ganze Seite */
+            padding: 10px 0; /* Weniger Höhe */
+            box-shadow: 0 4px 12px var(--shadow-color);
             position: sticky;
             top: 0;
             z-index: 999;
-            padding: 10px 0; /* Weniger Höhe für eine kompakte Anzeige */
-            max-width: 600px; /* Maximale Breite begrenzt */
-            margin: 0 auto; /* Zentriert den Bereich */
-            box-shadow: 0 4px 12px var(--shadow-color);
-            background-color: #f4f4f9; /* Hintergrundfarbe des sticky Teils */
+        }
+
+        .hero-content {
+            max-width: 600px; /* Begrenzte Breite des Textes */
+            margin: 0 auto; /* Zentriert den Text innerhalb des Balkens */
+            text-align: center;
         }
 
         h1 {
@@ -169,15 +168,17 @@
     </nav>
 
     <div class="hero">
-        <!-- Social Media & Kontakt -->
-        <div class="social-links">
-            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
-        </div>
+        <!-- Inhalt des Balkens -->
+        <div class="hero-content">
+            <div class="social-links">
+                <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+                <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+                <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
+                <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+            </div>
 
-        <h1>Dîlan Canan Çakir</h1>
+            <h1>Dîlan Canan Çakir</h1>
+        </div>
     </div>
 
     <div class="content">

@@ -48,6 +48,38 @@
             text-decoration: underline;
         }
 
+        .header-bar {
+            background-color: var(--highlight-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-title {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
         .hero {
             background-color: var(--bg-color);
             height: 300px;
@@ -62,22 +94,6 @@
             font-size: 3em;
             margin: 0;
             color: var(--text-color);
-        }
-
-        .social-links {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-color);
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .social-links a:hover {
-            color: var(--highlight-color);
         }
 
         .content {
@@ -179,28 +195,28 @@
         <a href="conferences">Organised Conferences</a>
     </nav>
 
-    <div class="hero">
+    <div class="header-bar">
+        <h1 class="header-title">Dîlan Canan Çakir</h1>
         <div class="social-links">
             <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
             <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
             <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
             <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
         </div>
-        <h1>Dîlan Canan Çakir</h1>
     </div>
 
     <div class="content">
-        <p>Postdoc at <a href="https://www.temporal-communities.de" target="_blank">Freien Universität Berlin</a>  (<strong>Cluster of Excellence "Temporal Communities"</strong>).</p>
-        <p>Here you will find information on my publications, teaching events, lectures, readings and the conferences I have organised.</p>
+        <p>Postdoc at <a href="https://www.temporal-communities.de" target="_blank">Freie Universität Berlin</a> (<strong>Cluster of Excellence "Temporal Communities"</strong>).</p>
+        <p>Here you will find information on my publications, teaching events, lectures, readings, and the conferences I have organised.</p>
 
-        <h3>research interests</h3>
+        <h3>Research Interests</h3>
         <ul>
             <li><strong>German literature</strong> 📚</li>
-            <li><strong>Activism and literature</strong> ✊</li>
-            <li><strong>Theater studies</strong> 🎭</li>
-            <li><strong>Game studies and literature</strong> 🎮</li>
-            <li><strong>Digital literature</strong> 💻</li>
-            <li><strong>Digital humanities</strong> 💾</li>
+            <li><strong>activism and literature</strong> ✊</li>
+            <li><strong>theater studies</strong> 🎭</li>
+            <li><strong>game studies and literature</strong> 🎮</li>
+            <li><strong>digital literature</strong> 💻</li>
+            <li><strong>digital humanities</strong> 💾</li>
         </ul>
     </div>
 

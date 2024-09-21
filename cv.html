@@ -6,32 +6,128 @@
     <title>CV</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Grundlegende Farben und Schriftarten */
         :root {
-            --bg-color: #f9f9f9;
+            --bg-color: #f4f4f9;
             --text-color: #333;
-            --link-color: #0073e6;
+            --highlight-color: #555;
+            --accent-color: #0073e6; /* Optional: Akzentfarbe für Links oder kleine Hervorhebungen */
             --card-bg: #fff;
-            --nav-bg: #333;
-            --nav-link-color: white;
+            --nav-bg: #2c3e50;
+            --nav-link-color: #ecf0f1;
+            --nav-link-hover: #bdc3c7;
+            --section-title-color: #34495e;
+            --subtext-color: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Stil für die Navigation */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--nav-link-color);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--nav-link-hover);
+        }
+
+        /* Container für den Inhalt */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Header-Stil */
+        h1 {
+            font-size: 2.5em;
+            color: var(--section-title-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--section-title-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        strong {
+            font-weight: bold;
+            color: var(--highlight-color);
         }
 
         .cv-section {
             margin-bottom: 30px;
         }
 
-        .cv-section p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: var(--text-color);
+        /* Subtext für zusätzliche Details */
+        .subtext {
+            color: var(--subtext-color);
+            font-size: 0.9em;
         }
 
-        .cv-section strong {
-            font-weight: bold;
-            color: var(--link-color); /* Oder eine andere Farbe, um wichtige Infos hervorzuheben */
+        /* Für kleinere Bildschirme */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="/">Home</a>
         <a href="cv">CV</a>
@@ -42,6 +138,7 @@
         <a href="conferences">Organised Conferences</a>
     </nav>
 
+    <!-- Hauptinhalt -->
     <div class="content">
         <h1>Curriculum Vitae</h1>
 
@@ -61,8 +158,8 @@
             <p>Academic Coordinator, Project: Cluster of Excellence Initiative "Understanding Understanding", <strong>Eberhard Karl University of Tübingen / University of Stuttgart</strong></p>
         </div>
 
-        <!-- Fellowships Section -->
-        <h2>Fellowships</h2>
+        <!-- Fellowships and Prizes Section -->
+        <h2>Fellowships and Prizes</h2>
         <div class="cv-section">
             <p><strong>01/2019-09/2021</strong></p>
             <p>Doctoral Scholarship of the <strong>German Academic Scholarship Foundation (Studienstiftung des deutschen Volkes)</strong></p>
@@ -80,8 +177,8 @@
             <p><strong>2021</strong></p>
             <p><strong>Ph.D., Faculty of Humanities, University of Stuttgart</strong></p>
             <p>Dissertation: Poetic Economy in Drama. German-language One-Act Plays in the 18th and early 19th Centuries [Poetische Ökonomie im Drama. Einakter im 18. und frühen 19. Jahrhundert]</p>
-            <p>Advisors: Prof. Dr. Sandra Richter (University of Stuttgart) and Prof. Dr. Sigrid Köhler (Eberhard Karl University of Tübingen)</p>
-            <p>[Submitted: 19.10.2021; Defended: 08.12.2022]</p>
+            <p class="subtext">Advisors: Prof. Dr. Sandra Richter (University of Stuttgart) and Prof. Dr. Sigrid Köhler (Eberhard Karl University of Tübingen)</p>
+            <p class="subtext">[Submitted: 19.10.2021; Defended: 08.12.2022]</p>
 
             <p><strong>2015-2017</strong></p>
             <p><strong>M.A. German Studies (with honors), University of Stuttgart</strong></p>
@@ -93,5 +190,6 @@
             <p><strong>B.A. German Studies, and Linguistics, University of Stuttgart</strong></p>
         </div>
     </div>
+
 </body>
 </html>

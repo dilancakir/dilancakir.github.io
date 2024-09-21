@@ -8,7 +8,7 @@
         :root {
             --bg-color: #f9f9f9;
             --text-color: #333;
-            --link-color: #0073e6;
+            --link-color: #1e90ff;
             --card-bg: #fff;
             --nav-bg: #333;
             --nav-link-color: white;
@@ -16,7 +16,6 @@
             --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
-        /* Dark mode variables */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #1e1e1e;
@@ -64,7 +63,7 @@
         h1 {
             text-align: center;
             margin-top: 40px;
-            font-size: 2.5em;
+            font-size: 3em;
             color: var(--text-color);
         }
 
@@ -80,7 +79,7 @@
 
         .content p, .content ul {
             margin-bottom: 20px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: var(--text-color);
         }
 
@@ -109,10 +108,6 @@
             justify-content: center;
             gap: 40px;
             margin-top: 20px;
-        }
-
-        .recent-publication {
-            text-align: center;
         }
 
         .recent-publication img {
@@ -153,11 +148,6 @@
             color: var(--highlight-color);
             text-decoration: underline;
         }
-
-        /* Smooth transitions for dark mode */
-        body, nav, .content, .recent-publication img, .social-links, .recent-publication a {
-            transition: background-color 0.3s, color 0.3s;
-        }
     </style>
 </head>
 <body>
@@ -171,7 +161,6 @@
         <a href="conferences">Organised Conferences</a>
     </nav>
 
-    <!-- Social Media & Contact -->
     <div class="social-links">
         <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
         <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
@@ -195,20 +184,17 @@
         </ul>
     </div>
 
-    <!-- Recent Publication Section -->
-    <div class="recent-publication-section">
-        <h2>Recent Publication</h2>
+    <div class="recent-publication-sections">
+        <h2>Recent Publications</h2>
         <div class="recent-publications">
-            <div class="recent-publication">
-                <!-- Buchcover und Link zur DOI -->
+            <div class="recent-publications">
                 <a href="https://doi.org/10.1515/9783111334059" target="_blank">
                     <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
                 </a>
                 <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
             </div>
 
-            <div class="recent-publication">
-                <!-- Poster und Link zur DOI -->
+            <div class="recent-publications">
                 <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
                     <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
                 </a>

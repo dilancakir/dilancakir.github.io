@@ -1,213 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dîlan Canan Çakir</title>
-    <style>
-        :root {
-            --bg-color: #f5f5f5;
-            --text-color: #333;
-            --link-color: #0066cc;
-            --card-bg: #ffffff;
-            --nav-bg: #444;
-            --nav-link-color: white;
-            --highlight-color: #0073e6;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            background-color: var(--nav-bg);
-            padding: 1em;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px var(--shadow-color);
-        }
-
-        nav a {
-            color: var(--nav-link-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--highlight-color);
-            text-decoration: underline;
-        }
-
-        .hero {
-            background-color: var(--bg-color);
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
-        }
-
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            color: var(--text-color);
-        }
-
-        .social-links {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-color);
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .social-links a:hover {
-            color: var(--highlight-color);
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-
-        .content p, .content ul {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        ul {
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 12px;
-        }
-
-        .recent-publications-section {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .recent-publications-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .recent-publications {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: nowrap; /* Stelle sicher, dass kein Zeilenumbruch erfolgt */
-        }
-
-        .recent-publications {
-            text-align: center;
-            max-width: 180px;
-            transition: transform 0.3s;
-        }
-
-        .recent-publications:hover {
-            transform: scale(1.05);
-        }
-
-        .recent-publications img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px var(--shadow-color);
-        }
-
-        .recent-publications a {
-            text-decoration: none;
-            color: var(--link-color);
-            font-size: 0.9em;
-        }
-
-        .recent-publications a:hover {
-            color: var(--highlight-color);
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="cv">CV</a>
-        <a href="publications">Publications</a>
-        <a href="talks">Talks</a>
-        <a href="readings">Readings & Moderations</a>
-        <a href="teaching">Teaching</a>
-        <a href="conferences">Organised Conferences</a>
-    </nav>
-
-    <div class="hero">
-        <!-- Social Media & Contact -->
-        <div class="social-links">
-            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+<div class="recent-publications-section">
+    <h2>Recent Publications</h2>
+    <div class="recent-publications">
+        <div class="recent-publication">
+            <a href="https://doi.org/10.1515/9783111334059" target="_blank">
+                <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
+            </a>
+            <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
         </div>
 
-        <h1>Dîlan Canan Çakir</h1>
-    </div>
+        <div class="recent-publication">
+            <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
+                <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
+            </a>
+            <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
+        </div>
 
-    <div class="content">
-        <p>Postdoc @ Freie Universität Berlin <a href="https://www.temporal-communities.de">Cluster of Excellence "Temporal Communities"</a>.</p>
-        <p>Here you will find information about my publications, teaching, talks, readings, and conferences that I have organised.</p>
-
-        <p><strong>Research interests:</strong></p>
-        <ul>
-            <li>German literature 📚</li>
-            <li>Activism and literature ✊</li>
-            <li>Theater studies 🎭</li>
-            <li>Game studies and literature 🎮</li>
-            <li>Digital literature 💻</li>
-            <li>Digital humanities 💾</li>
-        </ul>
-    </div>
-
-    <div class="recent-publications-section">
-        <h2>Recent Publications</h2>
-        <div class="recent-publications">
-            <div class="recent-publications">
-                <a href="https://doi.org/10.1515/9783111334059" target="_blank">
-                    <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
-                </a>
-                <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
-            </div>
-
-            <div class="recent-publications">
-                <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
-                    <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
-                </a>
-                <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
-            </div>
-
-            <div class="recent-publications">
-                <a href="#" target="_blank">
-                    <img src="https://github.com/dilancakir/dilancakir.github.io/blob/main/Literatur%20ist%20niemals%20nur%20kunst.png" alt="Deckblatt">
-                </a>
-                <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
-            </div>
+        <div class="recent-publication">
+            <a href="#" target="_blank">
+                <img src="Literatur ist niemals nur kunst.png" alt="Deckblatt">
+            </a>
+            <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
         </div>
     </div>
-</body>
-</html>
+</div>

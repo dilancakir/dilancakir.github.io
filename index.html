@@ -48,18 +48,35 @@
         }
 
         .hero {
-            background: url('https://your-image-url.jpg') no-repeat center center/cover;
+            background-color: var(--bg-color);
             height: 300px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: var(--text-color);
         }
 
         h1 {
             font-size: 3em;
             margin: 0;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            color: var(--highlight-color);
         }
 
         .content {
@@ -127,22 +144,6 @@
         .recent-publication a:hover {
             color: var(--highlight-color);
         }
-
-        .social-links {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            color: var(--text-color);
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            color: var(--highlight-color);
-        }
     </style>
 </head>
 <body>
@@ -157,14 +158,15 @@
     </nav>
 
     <div class="hero">
-        <h1>Dîlan Canan Çakir</h1>
-    </div>
+        <!-- Social Media & Contact -->
+        <div class="social-links">
+            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
+            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+        </div>
 
-    <div class="social-links">
-        <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-        <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-        <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+        <h1>Dîlan Canan Çakir</h1>
     </div>
 
     <div class="content">
@@ -194,9 +196,16 @@
 
             <div class="recent-publication">
                 <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
-                    <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
+                    <img src="https://github.com/dilancakir/dilancakir.github.io/blob/main/Literatur%20ist%20niemals%20nur%20kunst.png" alt="Deckblatt">
                 </a>
                 <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
+            </div>
+
+            <div class="recent-publication">
+                <a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">
+                    <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
+                </a>
+                <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
             </div>
         </div>
     </div>

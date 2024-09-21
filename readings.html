@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Readings & Moderations</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 1em;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1e90ff;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .event-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <a href="/">Home</a>
@@ -13,17 +89,60 @@
         <a href="publications">Publications</a>
         <a href="talks">Talks</a>
         <a href="readings">Readings & Moderations</a>
-         <a href="teaching">Teaching</a>
+        <a href="teaching">Teaching</a>
         <a href="conferences">Organised Conferences</a>
     </nav>
 
     <div class="content">
         <h1>Readings & Moderations</h1>
-        <p>Hier kannst du Lesungen und Moderationen auflisten:</p>
-        <ul>
-            <li>Lesung 1: Titel, Ort, Jahr</li>
-            <li>Moderation 1: Titel, Ort, Jahr</li>
-        </ul>
+        
+        <div class="event-list">
+            <div class="event-card">
+                <div class="event-title">Translating Ulysses. Reading and Q&A with Kawa Nemir</div>
+                <div class="event-details">Kurdisches Literaturfestival, Literaturhaus Berlin, 1 June 2024</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Frank Fischer: Gespräch mit Madita Oeming über pornographische Einakter und 'Die neue Messaline'</div>
+                <div class="event-details">Der Deutschsprachige Einakter [Seminar], Freie Universität Berlin, 22 January 2023</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Anke Finger, Matthew Handelman, Alex Hogue, Sebastian Möring, Darren Wershler: "Literature, Games, and Game Design – From Literature to Games (And Back Again)"</div>
+                <div class="event-details">German Studies Association 47th Annual Conference, Montréal, 5-8 October 2023</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Rebecca Sturm: "Digital Literature. Gespräch mit Berit Glanz und Lukas Diestel"</div>
+                <div class="event-details">Summer School "Literature Data and Digital Literature", Deutsches Literaturarchiv Marbach, 3 August 2023</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Stephanie Obermeier: Lesung und Gespräch mit Aslı Erdoğan und Emine Sevgi Özdamar</div>
+                <div class="event-details">Benefizveranstaltung für die Erdbebenopfer in den kurdischen, syrischen und türkischen Gebieten, Deutsches Literaturarchiv Marbach, 21 April 2023</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Felix Lempp: "Einsamkeitsreflexionen. Fatma Aydemir und ihr Buch ‘Dschinns‘ (2022)"</div>
+                <div class="event-details">Gespräch und Buchvorstellung mit Fatma Aydemir, Tagung der Jungen Deutschen Schillergesellschaft, Deutsches Literaturarchiv Marbach, 3 November 2022</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Lena Falkenhagen und Sebastian Möring: "Games aus Europa – Wie erzählen Computerspiele?"</div>
+                <div class="event-details">Literaturfestival LIT:potsdam, Potsdam, 27 June 2022</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Andreas Lange et al.: "Was heißt und zu welchem Ende schreibt man deutsche ›Games‹-Geschichte"</div>
+                <div class="event-details">History of Games PAtCH’D – Symposium zur Frühgeschichte der Computerspiele, Bergische Universität Wuppertal, 4 June 2022</div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Mit Can Dündar, Cem Özdemir, Sandra Richter: "Writing and Reporting from Exile"</div>
+                <div class="event-details">Deutsches Literaturarchiv Marbach, 27 May 2022</div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

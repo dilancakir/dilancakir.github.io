@@ -15,7 +15,6 @@
             --nav-link-color: white;
             --highlight-color: #0073e6;
             --shadow-color: rgba(0, 0, 0, 0.1);
-            --header-bg: #282c34;
         }
 
         body {
@@ -49,56 +48,42 @@
             text-decoration: underline;
         }
 
-        .header-bar {
-            background-color: var(--header-bg);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            position: fixed;
+        .hero {
+            background-color: var(--bg-color);
+            width: 100%; /* Über die ganze Seite */
+            padding: 10px 0; /* Weniger Höhe */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 999;
-            box-shadow: 0 2px 8px var(--shadow-color);
         }
 
-        .header-title {
-            font-size: 1.8em;
+        .hero-content {
+            max-width: 600px; /* Begrenzte Breite des Textes */
+            margin: 0 auto; /* Zentriert den Text innerhalb des Balkens */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
             margin: 0;
+            color: var(--text-color);
         }
 
         .social-links {
-            display: flex;
-            gap: 15px;
+            text-align: center;
+            margin-bottom: 10px; /* Weniger Abstand */
         }
 
         .social-links a {
-            color: white;
+            color: var(--text-color);
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
         }
 
         .social-links a:hover {
             color: var(--highlight-color);
-        }
-
-        .hero {
-            margin-top: 70px; /* Platz für fixierten Header */
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
-        }
-
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            color: var(--text-color);
         }
 
         .content {
@@ -106,41 +91,23 @@
             margin: 30px auto;
             padding: 20px;
             background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 6px 20px var(--shadow-color);
-            transition: transform 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
 
-        .content:hover {
-            transform: translateY(-5px);
-        }
-
-        .content h2, .content h3 {
-            color: var(--link-color);
-            border-bottom: 2px solid var(--link-color);
-            padding-bottom: 5px;
-        }
-
-        .content p, .content ul {
+        .content p,
+        .content ul {
             margin-bottom: 20px;
             font-size: 1.1em;
-            line-height: 1.6;
         }
 
-        .content ul {
+        ul {
             margin-left: 20px;
             padding-left: 20px;
         }
 
-        .content li {
+        li {
             margin-bottom: 12px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .content li::marker {
-            font-size: 1.2em;
-            color: var(--highlight-color);
         }
 
         /* Publikationen */
@@ -200,35 +167,36 @@
         <a href="conferences">Organised Conferences</a>
     </nav>
 
-    <div class="header-bar">
-        <h1 class="header-title">Dîlan Canan Çakir</h1>
-        <div class="social-links">
-            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+    <div class="hero">
+        <!-- Inhalt des Balkens -->
+        <div class="hero-content">
+            <div class="social-links">
+                <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+                <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+                <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
+                <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+            </div>
+
+            <h1>Dîlan Canan Çakir</h1>
         </div>
     </div>
 
-    <div class="hero">
-        <h1>Dîlan Canan Çakir</h1>
-    </div>
-
     <div class="content">
-        <p>Postdoc at <a href="https://www.temporal-communities.de" target="_blank">Freie Universität Berlin</a> (<strong>Cluster of Excellence "Temporal Communities"</strong>).</p>
-        <p>Here you will find information on my publications, teaching, talks, readings, and the conferences I have organised.</p>
+        <p>Postdoc at Freie Universität Berlin <a href="https://www.temporal-communities.de">Cluster of Excellence "Temporal Communities"</a>.</p>
+        <p>Here you will find information about my publications, teaching, talks, readings, and conferences that I have organised.</p>
 
-        <h3>Research Interests</h3>
+        <p><strong>Research interests:</strong></p>
         <ul>
             <li>German literature 📚</li>
             <li>activism and literature ✊</li>
             <li>theater studies 🎭</li>
-            <li>games and literature 🎮</li>
+            <li>game studies and literature 🎮</li>
             <li>digital literature 💻</li>
             <li>digital humanities 💾</li>
         </ul>
     </div>
 
+    <!-- Publikationen -->
     <div class="recent-publications-section">
         <h2>Recent Publications</h2>
         <div class="recent-publications">

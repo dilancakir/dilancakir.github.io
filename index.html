@@ -15,7 +15,6 @@
             --nav-link-color: white;
             --highlight-color: #0073e6;
             --shadow-color: rgba(0, 0, 0, 0.1);
-            --accent-color: #0073e6;
         }
 
         body {
@@ -102,39 +101,23 @@
             font-size: 1.1em;
         }
 
-        .research-interests {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 15px;
-            margin: 20px 0;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
         }
 
-        .interest-card {
-            background-color: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 30%;
-            min-width: 150px;
-            text-align: center;
-        }
-
-        .interest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px var(--shadow-color);
-        }
-
-        .interest-card h3 {
-            font-size: 1.2em;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .interest-card p {
-            font-size: 0.95em;
-            color: var(--text-color);
+        li {
+            background-color: #f0f0f5;
+            color: #555;
+            font-size: 12px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
         }
 
         .recent-publications-section {
@@ -207,34 +190,7 @@
 
     <div class="content">
         <p>Postdoc at Freie Universität Berlin <a href="https://www.temporal-communities.de/people/cakir/" target="_blank">Cluster of Excellence "Temporal Communities"</a>.</p>
-        <p><strong>Research interests:</strong></p>
-
-        <div class="research-interests">
-            <div class="interest-card">
-                <h3>German Literature</h3>
-                <p>Exploration of German literary works in various historical contexts.</p>
-            </div>
-            <div class="interest-card">
-                <h3>Activism and Literature</h3>
-                <p>Investigating the intersection of activism and literary expression.</p>
-            </div>
-            <div class="interest-card">
-                <h3>Theater Studies</h3>
-                <p>Analyzing theatrical texts and performances across cultures.</p>
-            </div>
-            <div class="interest-card">
-                <h3>Game Studies and Literature</h3>
-                <p>Exploring the narrative structures in video games and interactive media.</p>
-            </div>
-            <div class="interest-card">
-                <h3>Digital Literature</h3>
-                <p>Examining how literature is evolving in the digital age.</p>
-            </div>
-            <div class="interest-card">
-                <h3>Digital Humanities</h3>
-                <p>Utilizing digital tools to analyze and visualize literary data.</p>
-            </div>
-        </div>
+        <p><em>Research interests:German literature, Activism and literature, theater studies, game studies and literature, digital literature, digital humanities</em>
     </div>
 
     <div class="recent-publications-section">
@@ -244,4 +200,24 @@
                 <a href="https://doi.org/10.1515/9783111334059" target="_blank">
                     <img src="https://www.degruyter.com/document/cover/isbn/9783111334059/product_pages" alt="Book Cover">
                 </a>
-                <p><a href="https://doi.org/10.1515/978311
+                <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">doi:10.1515/9783111334059</a></p>
+            </div>
+
+            <div class="publication">
+                <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
+                    <img src="Poster_Breiterkanon_Stabi_Cakir_2024-03-21-1.jpg" alt="Poster">
+                </a>
+                <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">doi:10.5281/zenodo.10863142</a></p>
+            </div>
+
+            <div class="publication">
+                <a href="#" target="_blank">
+                    <img src="Screenshot 2024-09-21 203904.png" alt="Deckblatt">
+                </a>
+                <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

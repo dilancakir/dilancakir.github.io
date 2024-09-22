@@ -88,54 +88,36 @@
 
         .content {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #fff;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            font-family: 'Arial', sans-serif;
-            color: #333;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
 
-        .content p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .content a {
-            color: var(--link-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .content a:hover {
-            color: var(--highlight-color);
-            text-decoration: underline;
-        }
-
+        .content p,
         .content ul {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        ul {
             list-style-type: none;
             padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin-top: 10px;
         }
 
-        .content ul li {
-            display: inline-block;
+        li {
             background-color: #f0f0f5;
             color: #555;
-            font-size: 14px;
+            font-size: 12px;
             padding: 8px 12px;
-            margin: 5px;
             border-radius: 20px;
-        }
-
-        .content strong {
-            font-size: 18px;
-            color: #222;
-            display: block;
-            margin-top: 20px;
+            white-space: nowrap;
         }
 
         .recent-publications-section {
@@ -152,7 +134,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .publication {
@@ -221,7 +203,6 @@
         </ul>
     </div>
 
-    <!-- Publikationen -->
     <div class="recent-publications-section">
         <h2>Recent Publications</h2>
         <div class="recent-publications">
@@ -240,7 +221,13 @@
             </div>
 
             <div class="publication">
-                <a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">
+                <a href="#" target="_blank">
                     <img src="Screenshot 2024-09-21 203904.png" alt="Deckblatt">
                 </a>
-               
+                <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

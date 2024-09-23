@@ -7,14 +7,14 @@
     <title>Dîlan Canan Çakir</title>
     <style>
         :root {
-            --bg-color: #f5f5f5;
+            --bg-color: #f0f4f8;
             --text-color: #333;
-            --link-color: #0066cc;
-            --card-bg: #ffffff;
-            --nav-bg: #444;
+            --link-color: #007acc;
+            --highlight-color: #ff4081;
+            --nav-bg: #222;
             --nav-link-color: white;
-            --highlight-color: #0073e6;
             --shadow-color: rgba(0, 0, 0, 0.1);
+            --hero-bg: linear-gradient(135deg, #6b5b95, #b8a9c9);
         }
 
         body {
@@ -49,37 +49,35 @@
         }
 
         .hero {
-            background-color: var(--bg-color);
-            width: 100%;
-            padding: 10px 0;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            margin: 0 auto;
+            background: var(--hero-bg);
+            padding: 100px 20px;
+            color: white;
             text-align: center;
         }
 
-        h1 {
-            font-size: 2em;
+        .hero h1 {
+            font-size: 3em;
             margin: 0;
-            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .hero span {
+            font-size: 0.7em;
+            font-weight: 300;
+            display: block;
+            margin-top: 10px;
         }
 
         .social-links {
-            text-align: center;
-            margin-bottom: 10px;
+            margin-top: 20px;
         }
 
         .social-links a {
-            color: var(--text-color);
-            margin: 0 10px;
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
-            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s;
         }
 
         .social-links a:hover {
@@ -87,54 +85,42 @@
         }
 
         .content {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 50px auto;
             padding: 20px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-
-        .content p,
-        .content ul {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        li {
-            background-color: #f0f0f5;
-            color: #555;
-            font-size: 12px;
-            padding: 8px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .recent-publications-section {
-            margin-top: 40px;
             text-align: center;
         }
 
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .content a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content a:hover {
+            color: var(--highlight-color);
+        }
+
+        .recent-publications-section {
+            margin-top: 50px;
+        }
+
         .recent-publications-section h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
 
         .recent-publications {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: nowrap;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .publication {
@@ -144,24 +130,26 @@
         }
 
         .publication:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .publication img {
             width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px var(--shadow-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
 
         .publication a {
-            text-decoration: none;
+            display: block;
             color: var(--link-color);
+            margin-top: 10px;
             font-size: 0.9em;
         }
 
         .publication a:hover {
             color: var(--highlight-color);
         }
+
     </style>
 </head>
 
@@ -177,21 +165,19 @@
     </nav>
 
     <div class="hero">
-        <div class="hero-content">
-            <div class="social-links">
-                <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
-                <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
-                <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-                <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
-                <a href="https://literatur.social/@DilanCakir" target "_blank">Mastodon</a>
-            </div>
-            <h1>Dîlan Canan Çakir</h1>
+        <h1>Dîlan Canan Çakir <span>(sie/she)</span></h1>
+        <div class="social-links">
+            <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+            <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+            <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
+            <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+            <a href="https://literatur.social/@DilanCakir" target="_blank">Mastodon</a>
         </div>
     </div>
 
     <div class="content">
         <p>Postdoc at Freie Universität Berlin <a href="https://www.temporal-communities.de/people/cakir/" target="_blank">Cluster of Excellence "Temporal Communities"</a>.</p>
-        <p><em>Research interests: German literature (18th - 21st century), activism and literature, theater studies, game studies and literature, digital literature, digital humanities (computational literary studies)</em>
+        <p><em>Research interests: German literature (18th - 21st century), activism and literature, theater studies, game studies and literature, digital literature, digital humanities (computational literary studies)</em></p>
     </div>
 
     <div class="recent-publications-section">
@@ -212,13 +198,14 @@
             </div>
 
             <div class="publication">
-                <a href="#" target="_blank">
+                <a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">
                     <img src="Screenshot 2024-09-21 203904.png" alt="Deckblatt">
                 </a>
                 <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">link to text</a></p>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

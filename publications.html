@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Spinner-Stil */
+        .spinner {
+            border: 8px solid #f3f3f3; /* Hellgrauer Hintergrund */
+            border-top: 8px solid #3498db; /* Blaues Segment */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Animation des Spinners */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Spinner initial sichtbar */
+        #loader {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Spinner verstecken, wenn geladen */
+        #loader.hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -21,8 +52,24 @@
         <h1>Publications</h1>
         <p>Please wait a moment; the list may take a few seconds to load.</p>
         <p>Otherwise you can find the publications directly via <a href="https://www.zotero.org/dilanccakir/publications" target="_blank">Zotero</a>.</p>
-            <script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fzotero-mypublications%2FDilanCCakir&fullnames=1&theme=mila&jsonp=1&nocache=1"></script>
+        
+        <!-- Ladeicon -->
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
 
+        <!-- Bibliografie -->
+        <div id="bibliography"></div>
+        <script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fzotero-mypublications%2FDilanCCakir&fullnames=1&theme=mila&jsonp=1&nocache=1" onload="hideLoader()"></script>
     </div>
+
+    <script>
+        function hideLoader() {
+            document.getElementById('loader').classList.add('hidden');
+        }
+
+        // Fallback: Nach 10 Sekunden den Loader sicherheitshalber ausblenden, falls etwas schiefgeht
+        setTimeout(hideLoader, 10000);
+    </script>
 </body>
 </html>

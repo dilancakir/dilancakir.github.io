@@ -1,157 +1,104 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylische Seite mit Darkmode</title>
-    <style>
-        /* Grundfarben für Lightmode */
-        :root {
-            --bg-color: #f4f4f4;
-            --text-color: #333;
-            --nav-bg-color: #333;
-            --nav-link-color: white;
-            --nav-hover-color: #1e90ff;
-            --content-bg-color: white;
-            --content-box-shadow: rgba(0, 0, 0, 0.1);
-            --button-bg-color: #333;
-            --button-text-color: white;
-            --button-hover-bg: #555;
-            --highlight-color: #0073e6;
-        }
-
-        /* Darkmode-Farben */
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --nav-bg-color: #000;
-            --nav-link-color: #ddd;
-            --nav-hover-color: #1e90ff;
-            --content-bg-color: #1f1f1f;
-            --content-box-shadow: rgba(0, 0, 0, 0.6);
-            --button-bg-color: #fff;
-            --button-text-color: #333;
-            --button-hover-bg: #ddd;
-            --highlight-color: #1e90ff;
-        }
-
-        /* Allgemeine Stile */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        nav {
-            background-color: var(--nav-bg-color);
-            padding: 1em;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a {
-            color: var(--nav-link-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--nav-hover-color);
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 2.5em;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: var(--content-bg-color);
-            box-shadow: 0 4px 15px var(--content-box-shadow);
-            border-radius: 10px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .toggle-darkmode {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .toggle-darkmode button {
-            background-color: var(--button-bg-color);
-            color: var(--button-text-color);
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .toggle-darkmode button:hover {
-            background-color: var(--button-hover-bg);
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Blog</a>
-    </nav>
-
-    <div class="content">
-        <h1>Willkommen auf meiner stylischen Seite!</h1>
-        <p>Diese Seite unterstützt Light- und Darkmode, den du über den untenstehenden Button umschalten kannst. Modernes und minimalistisches Design kombiniert mit sanften Übergängen macht das Benutzererlebnis angenehm und klar.</p>
-        <p>Dark Mode bietet dir eine augenschonendere Ansicht bei wenig Licht. Experimentiere mit dem Button und sieh dir an, wie die Seite auf deinen Befehl reagiert!</p>
-    </div>
-
-    <div class="toggle-darkmode">
-        <button id="darkmode-toggle">Dark Mode aktivieren</button>
-    </div>
-
-    <script>
-        // Dark Mode Toggle Script
-        const toggleButton = document.getElementById('darkmode-toggle');
-        const body = document.body;
-
-        toggleButton.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                toggleButton.textContent = 'Dark Mode aktivieren';
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                toggleButton.textContent = 'Light Mode aktivieren';
-            }
-        });
-    </script>
-.cv-section {
-    margin-bottom: 30px;
+/* Grundfarben für Lightmode */
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --nav-bg-color: #333;
+  --nav-link-color: white;
+  --nav-hover-color: #1e90ff;
+  --content-bg-color: white;
+  --content-box-shadow: rgba(0, 0, 0, 0.1);
+  --button-bg-color: #333;
+  --button-text-color: white;
+  --button-hover-bg: #555;
+  --highlight-color: #0073e6;
 }
 
-.cv-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: var(--text-color);
+/* Darkmode-Farben */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg-color: #000;
+  --nav-link-color: #ddd;
+  --nav-hover-color: #1e90ff;
+  --content-bg-color: #1f1f1f;
+  --content-box-shadow: rgba(0, 0, 0, 0.6);
+  --button-bg-color: #fff;
+  --button-text-color: #333;
+  --button-hover-bg: #ddd;
+  --highlight-color: #1e90ff;
 }
 
-.cv-section strong {
-    font-weight: bold;
-    color: var(--link-color); /* Oder eine andere Farbe, um wichtige Infos hervorzuheben */
+/* Allgemeine Stile */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
-</body>
-</html>
+
+nav {
+  background-color: var(--nav-bg-color);
+  padding: 1em;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: var(--nav-link-color);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--nav-hover-color);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2.5em;
+}
+
+.content {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--content-bg-color);
+  box-shadow: 0 4px 15px var(--content-box-shadow);
+  border-radius: 10px;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.toggle-darkmode {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-darkmode button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.toggle-darkmode button:hover {
+  background-color: var(--button-hover-bg);
+}

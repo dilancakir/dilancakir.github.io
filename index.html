@@ -6,18 +6,17 @@
     <title>Dîlan Canan Çakir</title>
     <style>
       :root {
-        --bg-color: #f0f4f8;
-        --text-color: #333;
+        --bg-color: #ffffff;
+        --text-color: #222222;
         --link-color: #007acc;
         --highlight-color: #ff4081;
-        --nav-bg: #222;
-        --nav-link-color: white;
-        --shadow-color: rgba(0, 0, 0, 0.1);
-        --hero-bg: linear-gradient(135deg, #6b5b95, #b8a9c9);
+        --nav-bg: #ffffff;
+        --nav-link-color: #222222;
+        --shadow-color: rgba(0, 0, 0, 0.05);
       }
 
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
@@ -26,54 +25,58 @@
 
       nav {
         background-color: var(--nav-bg);
-        padding: 1em;
+        padding: 10px 20px;
         text-align: center;
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 4px 12px var(--shadow-color);
+        box-shadow: 0 2px 8px var(--shadow-color);
       }
 
       nav a {
         color: var(--nav-link-color);
-        margin: 0 15px;
+        margin: 0 10px;
         text-decoration: none;
-        font-weight: bold;
+        font-size: 0.9em;
+        font-weight: 400;
         transition: color 0.3s;
       }
 
       nav a:hover {
         color: var(--highlight-color);
-        text-decoration: underline;
       }
 
       .hero {
-        background-image: url("img/cover.webp"); /* Bild URL hier einfügen */
+        background-image: url("img/cover.webp");
         background-size: cover;
         background-position: center;
-        width: 100%;
-        padding: 80px 0; /* Erhöht um ein Drittel (von 10px auf 15px) */
-        box-shadow: 0 4px 12px var(--shadow-color);
-        position: sticky;
-        top: 0;
-        z-index: 999;
+        padding: 60px 20px;
         text-align: center;
-        color: white; /* Text in Weiß geändert */
+        color: white;
+        position: relative;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
       }
 
       .hero h1 {
-        font-size: 2em; /* Größe des Namens */
+        font-size: 2em;
         margin: 0;
-        font-weight: 600;
-        color: white; /* Name in Weiß */
+        font-weight: bold;
       }
 
-      .hero span {
-        font-size: 0.7em;
-        font-weight: 300;
-        display: block;
+      .hero p {
         margin-top: 10px;
-        color: white; /* Span in Weiß */
+        font-size: 1em;
+        font-weight: 300;
       }
 
       .social-links {
@@ -81,10 +84,10 @@
       }
 
       .social-links a {
-        color: white; /* Social Media Links in Weiß */
-        margin: 0 15px;
+        font-size: 1em;
+        margin: 0 10px;
+        color: white;
         text-decoration: none;
-        font-size: 1.2em;
         transition: color 0.3s;
       }
 
@@ -93,14 +96,19 @@
       }
 
       .content {
-        max-width: 900px;
-        margin: 50px auto;
+        max-width: 800px;
+        margin: 40px auto;
         padding: 20px;
-        text-align: center;
+        text-align: left;
+      }
+
+      .content h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
       }
 
       .content p {
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 1.6;
         color: #555;
       }
@@ -116,30 +124,31 @@
       }
 
       .recent-publications-section {
-        margin-top: 50px;
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
       }
 
       .recent-publications-section h2 {
         font-size: 1.5em;
         margin-bottom: 20px;
-        text-align: center;
       }
 
       .recent-publications {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
         justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
       }
 
       .publication {
         text-align: center;
-        max-width: 180px;
         transition: transform 0.3s;
       }
 
       .publication:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
 
       .publication img {
@@ -148,25 +157,28 @@
         box-shadow: 0 4px 10px var(--shadow-color);
       }
 
-      .publication a {
-        display: block;
-        color: var(--link-color);
+      .publication p {
         margin-top: 10px;
-        font-size: 0.9em;
       }
 
-      .publication a:hover {
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: var(--nav-bg);
+        color: var(--nav-link-color);
+        font-size: 0.8em;
+        margin-top: 40px;
+      }
+
+      footer a {
+        color: var(--link-color);
+        text-decoration: none;
+      }
+
+      footer a:hover {
         color: var(--highlight-color);
       }
     </style>
-    <meta
-      name="google-site-verification"
-      content="JG7HN1NtKHg-cfq53cpIsNApaTNeGiFUyHRyVEYWJjQ"
-    />
-    <meta
-      name="description"
-      content="literary scholar at Freie Universität Berlin, Cluster of Excellence Temporal Communities"
-    />
   </head>
 
   <body>
@@ -181,110 +193,68 @@
     </nav>
 
     <div class="hero">
-      <h1>Dîlan Canan Çakir <span>(sie/she)</span></h1>
+      <h1>Dîlan Canan Çakir</h1>
+      <p>Postdoc | Freie Universität Berlin</p>
       <div class="social-links">
-        <a href="https://orcid.org/0009-0001-0013-7205" target="_blank"
-          >ORCID</a
-        >
-        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank"
-          >Instagram</a
-        >
         <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
-        <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank"
-          >Bluesky</a
-        >
-        <a href="https://literatur.social/@DilanCakir" target="_blank"
-          >Mastodon</a
-        >
+        <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+        <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
+        <a href="https://literatur.social/@DilanCakir" target="_blank">Mastodon</a>
       </div>
     </div>
 
     <div class="content">
+      <h2>Über mich</h2>
       <p>
-        Postdoc at Freie Universität Berlin
-        <a
-          href="https://www.temporal-communities.de/people/cakir/"
-          target="_blank"
-          >Cluster of Excellence "Temporal Communities"</a
-        >.
+        Postdoc am Cluster of Excellence 
+        <a href="https://www.temporal-communities.de/people/cakir/" target="_blank">
+          "Temporal Communities"
+        </a>.
       </p>
       <p>
-        <em
-          >Research interests: German literature (18th - 21st century), activism
-          and literature, theater studies, game studies and literature, digital
-          literature, digital humanities (computational literary studies)</em
-        >
+        Forschungsinteressen: German literature (18th - 21st century), activism and literature, theater studies, game studies and literature, digital literature, digital humanities (computational literary studies)
       </p>
     </div>
 
     <div class="recent-publications-section">
-      <h2>Recent Publications</h2>
+      <h2>Letzte Veröffentlichungen</h2>
       <div class="recent-publications">
         <div class="publication">
           <a href="https://doi.org/10.1515/9783111334059" target="_blank">
             <img src="img/diss-cover.webp" alt="Book Cover" />
           </a>
-          <p>
-            <a href="https://doi.org/10.1515/9783111334059" target="_blank"
-              >link to book</a
-            >
-          </p>
+          <p><a href="https://doi.org/10.1515/9783111334059" target="_blank">Link to book</a></p>
         </div>
-
         <div class="publication">
           <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">
             <img src="img/Poster_Breiterkanon_Stabi.webp" alt="Poster" />
           </a>
-          <p>
-            <a href="https://doi.org/10.5281/zenodo.10863142" target="_blank"
-              >link to poster</a
-            >
-          </p>
+          <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">Link to poster</a></p>
         </div>
-
         <div class="publication">
           <a href="https://einakter.dracor.org/" target="_blank">
             <img src="img/1Akter DB Startseite.webp" alt="EinakterDB" />
           </a>
-          <p>
-            <a href="https://einakter.dracor.org/" target="_blank"
-              >link to database of German-language one-act plays</a
-            >
-          </p>
+          <p><a href="https://einakter.dracor.org/" target="_blank">Link to database</a></p>
         </div>
-
         <div class="publication">
-          <a
-            href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338"
-            target="_blank"
-          >
+          <a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">
             <img src="img/deckblatt.webp" alt="Deckblatt" />
           </a>
-          <p>
-            <a
-              href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338"
-              target="_blank"
-              >link to text</a
-            >
-          </p>
+          <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">Link to text</a></p>
         </div>
-
         <div class="publication">
-          <a
-            href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/"
-            target="_blank"
-          >
+          <a href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/" target="_blank">
             <img src="img/articulations.webp" alt="Articulations" />
           </a>
-          <p>
-            <a
-              href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/"
-              target="_blank"
-              >link to text</a
-            >
-          </p>
+          <p><a href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/" target="_blank">Link to text</a></p>
         </div>
       </div>
     </div>
+
+    <footer>
+      &copy; 2024 Dîlan Canan Çakir. <a href="mailto:dilan.cakir@fu-berlin.de">Kontakt</a>
+    </footer>
   </body>
 </html>

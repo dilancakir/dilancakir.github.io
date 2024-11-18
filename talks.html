@@ -1,313 +1,538 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Talks</title>
     <style>
-        :root {
-            --bg-color: #f0f4f8;
-            --text-color: #333;
-            --link-color: #007acc;
-            --highlight-color: #ff4081;
-            --nav-bg: #222;
-            --nav-link-color: white;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
+      :root {
+        --bg-color: #f0f4f8;
+        --text-color: #333;
+        --link-color: #007acc;
+        --highlight-color: #ff4081;
+        --nav-bg: #222;
+        --nav-link-color: white;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+      }
 
-        nav {
-            background-color: var(--nav-bg);
-            padding: 1em;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px var(--shadow-color);
-        }
+      nav {
+        background-color: var(--nav-bg);
+        padding: 1em;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
 
-        nav a {
-            color: var(--nav-link-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+      nav a {
+        color: var(--nav-link-color);
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
 
-        nav a:hover {
-            color: var(--highlight-color);
-            text-decoration: underline;
-        }
+      nav a:hover {
+        color: var(--highlight-color);
+        text-decoration: underline;
+      }
 
-        .content {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: left;
-        }
+      .content {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: left;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
 
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #555;
-            text-align: center;
-        }
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #555;
+        text-align: center;
+      }
 
-        .talks-list {
-            list-style: none;
-            padding: 0;
-        }
+      .talks-list {
+        list-style: none;
+        padding: 0;
+      }
 
-        .talk {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.4;
-        }
+      .talk {
+        margin-bottom: 20px;
+        font-size: 1.1em;
+        line-height: 1.4;
+      }
 
-        .talk-title {
-            font-weight: bold;
-        }
+      .talk-title {
+        font-weight: bold;
+      }
 
-        .talk-authors {
-            font-style: italic;
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 5px;
-        }
+      .talk-authors {
+        font-style: italic;
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
 
-        .talk-details {
-            margin-top: 5px;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .talks-container {
-            background-color: white; /* Hintergrundfarbe */
-            padding: 20px; /* Innenabstand */
-            border-radius: 8px; /* Abgerundete Ecken */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Kasten */
-            margin-top: 20px; /* Abstand nach oben */
-}
+      .talk-details {
+        margin-top: 5px;
+        font-size: 0.9em;
+        color: #666;
+      }
+      .talks-container {
+        background-color: white; /* Hintergrundfarbe */
+        padding: 20px; /* Innenabstand */
+        border-radius: 8px; /* Abgerundete Ecken */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Kasten */
+        margin-top: 20px; /* Abstand nach oben */
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="cv">CV</a>
-        <a href="publications">Publications</a>
-        <a href="talks">Talks</a>
-        <a href="readings">Readings</a>
-        <a href="teaching">Teaching</a>
-        <a href="conferences">Organised Conferences</a>
+      <a href="/">Home</a>
+      <a href="cv">CV</a>
+      <a href="publications">Publications</a>
+      <a href="talks">Talks</a>
+      <a href="readings">Readings</a>
+      <a href="teaching">Teaching</a>
+      <a href="conferences">Organised Conferences</a>
     </nav>
 
     <div class="content">
-        <h1>Talks & Presentations</h1>
-    <div class="talks-container">
+      <h1>Talks & Presentations</h1>
+      <div class="talks-container">
         <ul class="talks-list">
-            <li class="talk">
-                <span class="talk-title">"Game Studies"</span>
-                <div class="talk-details">[Gastvortrag] Prof. Dr. Frank Fischers Vorlesung "Einführung in die digitalen Geisteswissenschaften"</div>
-                <div  class="talk-details">Freie Universität Berlin, 27 January 2025.</div>
-            </li>            
-            <li class="talk">
-                <span class="talk-title">"Univariate Statistical Analysis of a Non-Canonical Literary Genre. Quantifying German-Language One-Act Plays (1740–1850)"</span>
-                <div class="talk-authors">with Viktor J. Illmer*, Frank Fischer, Lilly Welz, Carsten Milling</div>
-                <div class="talk-details">Fifth Conference on Computational Humanities Research (CHR)</div>
-                <div  class="talk-details">Aarhus University, Denmark, 4–6 December 2024.</div>
-            </li>
-             <li class="talk">
-                <span class="talk-title">"Einakter entdecken. Die Kunst des kurzen Dramas"</span>
-                <div class="talk-details">[Gastvortrag] Hebbel-Gesellschaft</div>
-                <div  class="talk-details">Hebbel-Museum in Wesselburen, 7 November 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Chasing 'Carmen Nova': Encoding and Analysis of a TEI Version of the Crime Novella Allegedly Written by Umberto Eco"</span>
-                <div class="talk-authors">with Viktor J. Illmer*, Frank Fischer*, Mark Schwindt*, Niels Penke, Lilly Welz</div>
-                <div class="talk-details">Texts, languages, and communities – TEI 2024</div>
-                <div  class="talk-details">Universidad del Salvador, Buenos Aires, 11 October 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Kurdishness in Contemporary German Literature"</span>
-                <div class="talk-details">GSA 2024 Seminar "Politisch schreiben in der deutschsprachigen Gegenwartsliteratur: Methodische und theoretische Annäherungen"</div>
-                <div  class="talk-details"> Atlanta, 26-29 September 2024.</div>
-        
-            </li>
-            <li class="talk">
-                <span class="talk-title">"DraCor und die Einakter-Datenbank als infrastrukturelle Voraussetzung für die digitale Gattungshermeneutik"</span>
-                <div class="talk-authors">with Viktor J. Illmer, Frank Fischer</div>
-                <div class="talk-details">Digitale Gattungshermeneutik</div>
-                <div class="talk-details">Ludwig-Maximilians-Universität München, 12 September 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">„Wertung und Literaturpreise. Gibt es einen Nobelpreiseffekt?“</span>
-                <div class="talk-details">[Gastvortrag] Dr. Maria Kraxenbergers Seminar "Wertung von Literatur in unterschiedlichen Kontexten" (NDL)</div>
-                <div class="talk-details"> Universität Stuttgart, 26 June 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Games als literarisches Phänomen"</span>
-                <div class="talk-details">[Gastvortrag] Vera  Piontkowitz und Prof. Dr. Manuel Burghardts Seminar "Digital Humanities und Game Studies" (Computational Humanities)</div>
-                <div class="talk-details"> Universität Leipzig, 3 June 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"'Sie dürfen gleichsam nicht gewahr werden, daß sie denken.' – Das Publikum und Einakter im 18. und frühen 19. Jahrhundert"</span>
-                <div class="talk-details">'Vergessene' Literatur sichtbar machen! Ein Abend mit dem Netzwerk „Breiter Kanon“</div>
-                <div class="talk-details">Staatsbibliothek zu Berlin, 21 March 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"One’s own body as a weapon – Why an author commits a hunger strike for terrorists"</span>
-                <div class="talk-details">ACLA 2024 Seminar "Activist Writing / Activist Reading"</div>
-                <div  class="talk-details">Montreal, 15 March 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Aktivismus und Literaturwissenschaft"</span>
-                <div class="talk-authors">with Anna Jurgan</div>
-                <div class="talk-details">Szondi Woche am Peter Szondi-Institut für Allgemeine und Vergleichende Literaturwissenschaft der FU Berlin</div>
-                <div class="talk-details">Freie Univeristät Berlin, 1 February 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Berliner Einakter um 1800“</span>
-                <div class="talk-details">Bühnen im Umbruch: Berliner Moderne(n) in Dramentexten und Theaterräumen</div>
-                <div class="talk-details"> Freie Universität Berlin, 18-19 January 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Aktivismus und Literatur“</span>
-                <div class="talk-details">[Gastvortrag] Prof. Dr. Sigrid Köhlers Kolloquium am Deutschen Seminar</div>
-                <div class="talk-details">Universität Tübingen, 9 January 2024.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Zwischen Wort und Tat – Aktivismus als Strömung im literarischen Expressionismus“</span>
-                <div class="talk-details">[Gastvortrag] Seminar „Kunst und Aktivismus“ von Prof. Dr. Julia Weber</div>
-                <div class="talk-details">Freie Universität Berlin, 13 December 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"'Ego-Shooter in literarischer Mission?' – Games im Literaturarchiv"</span>
-                <div class="talk-details">Interdisziplinäre Ringvorlesung: "Remediated!"</div>
-                <div class="talk-details">Universität Freiburg, 8 November 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Franz Kafka and Games"</span>
-                <div class="talk-details">German Studies Association 47th Annual Conference</div>
-                <div class="talk-details">Montréal, 7 October 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Studying born-digital artefacts in a literature archive. Friedrich Kittler’s born-digital estate"</span>
-                <div class="talk-authors">with Alex Holz</div>
-                <div class="talk-details">Studying Written Artefacts: Challenges and Perspectives (Conference of the Cluster of Excellence: Understanding Written Artecfacts)</div>
-                <div class="talk-details">University of Hamburg, 27-29 September 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Lost without emulation? Zur Abhängigkeit dynamischer digitaler Objekte von aktuellen Langzeitarchivierungsstrategien am Beispiel digitaler Spiele"</span>
-                <div class="talk-authors">with Melanie Fritsch, Stefan Höltgen, Alex Holz, Malte Hagener</div>
-                <div class="talk-details">Abhängigkeiten. Jahrestagung der Gesellschaft für Medienwissenschaft</div>
-                <div class="talk-details">Universität Bonn, 27-30 September 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Erfahrungen am Deutschen Literaturarchiv Marbach"</span>
-                <div class="talk-details">Archiv und Identität (Workshop der Jungen Akademie)</div>
-                <div class="talk-details">Freiburg, 14 July 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Games im Deutschen Literaturarchiv Marbach – Wie und warum wir Computerspiele archivieren"</span>
-                <div class="talk-authors">with Alex Holz</div>
-                <div class="talk-details">Digital Makerspace des Forschungsverbunds Marbach Weimar Wolfenbüttel</div>
-                <div class="talk-details">Klassik Stiftung Weimar, 9 March 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Überlegungen zu Born-digitals Beständen von Gamesautor*innen im Deutschen Literaturarchiv Marbach"</span>
-                <div class="talk-details">Digital ist besser? Sammlungsforschung im digitalen Zeitalter. Endterm-Tagung des MWW Verbundes</div>
-                <div class="talk-details">Klassik Stiftung Weimar, 16-17 February 2023.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Games im Deutschen Literaturarchiv Marbach"</span>
-                <div class="talk-details">Games. Stories. Procedures. Symposion der Deutschen Akademie für Kinder- und Jugendliteratur, des Sankt Michaelsbundes und Unlox</div>
-                <div class="talk-details">München, 13 December 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Asyl im Archiv? Über kurdische Diaspora, Gender und das deutsche Literaturarchiv Marbach"</span>
-                <div class="talk-details">After Hours im Interdisziplinären Zentrum für Geschlechterforschung (IZfG)</div>
-                <div class="talk-details">Universität Greifswald, 5 December 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Aktivismus im Deutschen Literaturarchiv – Engagement für bedrohtes kulturelles Erbe am Beispiel der kurdischen Literatur in der Diaspora"</span>
-                <div class="talk-details">Aktivismus und Wissenschaft I: Zur Theorie, Geschichte und Aktualität einer Provokation</div>
-                <div class="talk-details">Leibniz-Zentrum für Literatur- und Kulturforschung, Berlin, 27-29 October 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Kurdische Diaspora und Literatur. Potenziale eines Archivasyls für kurdische Literatur"</span>
-                <div class="talk-details">Archivasyl</div>
-                <div class="talk-details">Deutsches Literaturarchiv Marbach, 25-27 October 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Hilde Domin and the German Literature Archive Marbach"</span>
-                <div class="talk-details">One year Hilde Domin Programme (German Academic Exchange Service)</div>
-                <div class="talk-details"> Berlin, 13 October 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Kanonkritik und quantitative digitale Literaturwissenschaft. Deutschsprachiger Einakter (1740–1850)"</span>
-                <div class="talk-details">StartScience - Mentoring Programm der Universität Stuttgart</div>
-                <div class="talk-details">Universität Stuttgart, 29 April 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Dramatische Metadaten. Die Datenbank deutschsprachiger Einakter 1740–1850"</span>
-                <div class="talk-authors">with Frank Fischer</div>
-                <div class="talk-details">DHd2022: Kulturen des digitalen Gedächtnisses</div>
-                <div class="talk-details">Universität Potsdam, 10 March 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Mit den wenigsten Mitteln die größten Effekte – Die Datenbank deutschsprachiger Einakter 1740–1850 und ihre digitale Umgebung"</span>
-                <div class="talk-authors">with Frank Fischer</div>
-                <div class="talk-details">Kolloquium ‘Phänomenologie der Digital Humanities‘</div>
-                <div class="talk-details">Freie Universität Berlin, 6 January 2022.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Einakter, poetische Ökonomie und eine digitale Datenbank"</span>
-                <div class="talk-details">69th National Postgraduate Colloquium in German Studies organised in association with the Institute of Modern Languages Research (IMLR - formerly Institute of Germanic & Romance Studies) </div>
-                <div class="talk-details"> University of London, 26 November 2021.</div
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Is There a Nobel Effect? Translations after the Nobel Prize"</span>
-                <div class="talk-authors">with Sandra Richter</div>
-                <div class="talk-details">Literature in the Nobel Era. Theoretical, archival, and critical approaches to the Nobel Prize in Literature.</div>
-                <div class="talk-details">German Literature Archive Marbach, 27 September 2021.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Datenbank deutschsprachiger Einakter (1740er–1850er)"</span>
-                <div class="talk-details">vDHd2021-Event "Young Researcher Infrastruktur-Pitch" von CLARIAHde</div>
-                <div class="talk-details">vDHd2021, 24 March 2021.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Die Einakter des 18. und frühen 19. Jahrhunderts"</span>
-                <div class="talk-details">Prof. Sigrid Köhlers Kolloquium (Deutsches Seminar)</div>
-                <div class="talk-details">Universität Tübingen, 22 January 2019.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Die Einakter des 18. und frühen 19. Jahrhunderts im Gotha-Bestand"</span>
-                <div class="talk-details">Herzog-Ernst-Kolloquium</div>
-                <div class="talk-details">Forschungszentrum Gotha, 1 November 2018.</div>
-            </li>
-            <li class="talk">
-                <span class="talk-title">"Lachen statt Gähnen. Die moralische und ästhetische Heterogenität des Theaterabends im 18. Jahrhundert"</span>
-                <div class="talk-details">Jahrestagung der Deutschen Gesellschaft zur Erforschung des 18. Jahrhunderts</div>
-                <div class="talk-details">Universität Paderborn, 22 September 2018.</div>
-            </li>
+          <li class="talk">
+            <span class="talk-title">"Game Studies"</span>
+            <div class="talk-details">
+              [Gastvortrag] Prof. Dr. Frank Fischers Vorlesung "Einführung in
+              die digitalen Geisteswissenschaften"
+            </div>
+            <div class="talk-details">
+              Freie Universität Berlin, 27 January 2025.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Univariate Statistical Analysis of a Non-Canonical Literary
+              Genre. Quantifying German-Language One-Act Plays
+              (1740–1850)"</span
+            >
+            <div class="talk-authors">
+              with Viktor J. Illmer*, Frank Fischer, Lilly Welz, Carsten Milling
+            </div>
+            <div class="talk-details">
+              Fifth Conference on Computational Humanities Research (CHR)
+            </div>
+            <div class="talk-details">
+              Aarhus University, Denmark, 4–6 December 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Einakter entdecken. Die Kunst des kurzen Dramas"</span
+            >
+            <div class="talk-details">[Gastvortrag] Hebbel-Gesellschaft</div>
+            <div class="talk-details">
+              Hebbel-Museum in Wesselburen, 7 November 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Chasing 'Carmen Nova': Encoding and Analysis of a TEI Version of
+              the Crime Novella Allegedly Written by Umberto Eco"</span
+            >
+            <div class="talk-authors">
+              with Viktor J. Illmer*, Frank Fischer*, Mark Schwindt*, Niels
+              Penke, Lilly Welz
+            </div>
+            <div class="talk-details">
+              Texts, languages, and communities – TEI 2024
+            </div>
+            <div class="talk-details">
+              Universidad del Salvador, Buenos Aires, 11 October 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Kurdishness in Contemporary German Literature"</span
+            >
+            <div class="talk-details">
+              GSA 2024 Seminar "Politisch schreiben in der deutschsprachigen
+              Gegenwartsliteratur: Methodische und theoretische Annäherungen"
+            </div>
+            <div class="talk-details">Atlanta, 26-29 September 2024.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"DraCor und die Einakter-Datenbank als infrastrukturelle
+              Voraussetzung für die digitale Gattungshermeneutik"</span
+            >
+            <div class="talk-authors">with Viktor J. Illmer, Frank Fischer</div>
+            <div class="talk-details">Digitale Gattungshermeneutik</div>
+            <div class="talk-details">
+              Ludwig-Maximilians-Universität München, 12 September 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >„Wertung und Literaturpreise. Gibt es einen
+              Nobelpreiseffekt?“</span
+            >
+            <div class="talk-details">
+              [Gastvortrag] Dr. Maria Kraxenbergers Seminar "Wertung von
+              Literatur in unterschiedlichen Kontexten" (NDL)
+            </div>
+            <div class="talk-details">Universität Stuttgart, 26 June 2024.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title">"Games als literarisches Phänomen"</span>
+            <div class="talk-details">
+              [Gastvortrag] Vera Piontkowitz und Prof. Dr. Manuel Burghardts
+              Seminar "Digital Humanities und Game Studies" (Computational
+              Humanities)
+            </div>
+            <div class="talk-details">Universität Leipzig, 3 June 2024.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"'Sie dürfen gleichsam nicht gewahr werden, daß sie denken.' –
+              Das Publikum und Einakter im 18. und frühen 19. Jahrhundert"</span
+            >
+            <div class="talk-details">
+              'Vergessene' Literatur sichtbar machen! Ein Abend mit dem Netzwerk
+              „Breiter Kanon“
+            </div>
+            <div class="talk-details">
+              Staatsbibliothek zu Berlin, 21 March 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"One’s own body as a weapon – Why an author commits a hunger
+              strike for terrorists"</span
+            >
+            <div class="talk-details">
+              ACLA 2024 Seminar "Activist Writing / Activist Reading"
+            </div>
+            <div class="talk-details">Montreal, 15 March 2024.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Aktivismus und Literaturwissenschaft"</span
+            >
+            <div class="talk-authors">with Anna Jurgan</div>
+            <div class="talk-details">
+              Szondi Woche am Peter Szondi-Institut für Allgemeine und
+              Vergleichende Literaturwissenschaft der FU Berlin
+            </div>
+            <div class="talk-details">
+              Freie Univeristät Berlin, 1 February 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title">"Berliner Einakter um 1800“</span>
+            <div class="talk-details">
+              Bühnen im Umbruch: Berliner Moderne(n) in Dramentexten und
+              Theaterräumen
+            </div>
+            <div class="talk-details">
+              Freie Universität Berlin, 18-19 January 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title">"Aktivismus und Literatur“</span>
+            <div class="talk-details">
+              [Gastvortrag] Prof. Dr. Sigrid Köhlers Kolloquium am Deutschen
+              Seminar
+            </div>
+            <div class="talk-details">
+              Universität Tübingen, 9 January 2024.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Zwischen Wort und Tat – Aktivismus als Strömung im literarischen
+              Expressionismus“</span
+            >
+            <div class="talk-details">
+              [Gastvortrag] Seminar „Kunst und Aktivismus“ von Prof. Dr. Julia
+              Weber
+            </div>
+            <div class="talk-details">
+              Freie Universität Berlin, 13 December 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"'Ego-Shooter in literarischer Mission?' – Games im
+              Literaturarchiv"</span
+            >
+            <div class="talk-details">
+              Interdisziplinäre Ringvorlesung: "Remediated!"
+            </div>
+            <div class="talk-details">
+              Universität Freiburg, 8 November 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title">"Franz Kafka and Games"</span>
+            <div class="talk-details">
+              German Studies Association 47th Annual Conference
+            </div>
+            <div class="talk-details">Montréal, 7 October 2023.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Studying born-digital artefacts in a literature archive.
+              Friedrich Kittler’s born-digital estate"</span
+            >
+            <div class="talk-authors">with Alex Holz</div>
+            <div class="talk-details">
+              Studying Written Artefacts: Challenges and Perspectives
+              (Conference of the Cluster of Excellence: Understanding Written
+              Artecfacts)
+            </div>
+            <div class="talk-details">
+              University of Hamburg, 27-29 September 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Lost without emulation? Zur Abhängigkeit dynamischer digitaler
+              Objekte von aktuellen Langzeitarchivierungsstrategien am Beispiel
+              digitaler Spiele"</span
+            >
+            <div class="talk-authors">
+              with Melanie Fritsch, Stefan Höltgen, Alex Holz, Malte Hagener
+            </div>
+            <div class="talk-details">
+              Abhängigkeiten. Jahrestagung der Gesellschaft für
+              Medienwissenschaft
+            </div>
+            <div class="talk-details">
+              Universität Bonn, 27-30 September 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Erfahrungen am Deutschen Literaturarchiv Marbach"</span
+            >
+            <div class="talk-details">
+              Archiv und Identität (Workshop der Jungen Akademie)
+            </div>
+            <div class="talk-details">Freiburg, 14 July 2023.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Games im Deutschen Literaturarchiv Marbach – Wie und warum wir
+              Computerspiele archivieren"</span
+            >
+            <div class="talk-authors">with Alex Holz</div>
+            <div class="talk-details">
+              Digital Makerspace des Forschungsverbunds Marbach Weimar
+              Wolfenbüttel
+            </div>
+            <div class="talk-details">
+              Klassik Stiftung Weimar, 9 March 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Überlegungen zu Born-digitals Beständen von Gamesautor*innen im
+              Deutschen Literaturarchiv Marbach"</span
+            >
+            <div class="talk-details">
+              Digital ist besser? Sammlungsforschung im digitalen Zeitalter.
+              Endterm-Tagung des MWW Verbundes
+            </div>
+            <div class="talk-details">
+              Klassik Stiftung Weimar, 16-17 February 2023.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Games im Deutschen Literaturarchiv Marbach"</span
+            >
+            <div class="talk-details">
+              Games. Stories. Procedures. Symposion der Deutschen Akademie für
+              Kinder- und Jugendliteratur, des Sankt Michaelsbundes und Unlox
+            </div>
+            <div class="talk-details">München, 13 December 2022.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Asyl im Archiv? Über kurdische Diaspora, Gender und das deutsche
+              Literaturarchiv Marbach"</span
+            >
+            <div class="talk-details">
+              After Hours im Interdisziplinären Zentrum für
+              Geschlechterforschung (IZfG)
+            </div>
+            <div class="talk-details">
+              Universität Greifswald, 5 December 2022.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Aktivismus im Deutschen Literaturarchiv – Engagement für
+              bedrohtes kulturelles Erbe am Beispiel der kurdischen Literatur in
+              der Diaspora"</span
+            >
+            <div class="talk-details">
+              Aktivismus und Wissenschaft I: Zur Theorie, Geschichte und
+              Aktualität einer Provokation
+            </div>
+            <div class="talk-details">
+              Leibniz-Zentrum für Literatur- und Kulturforschung, Berlin, 27-29
+              October 2022.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Kurdische Diaspora und Literatur. Potenziale eines Archivasyls
+              für kurdische Literatur"</span
+            >
+            <div class="talk-details">Archivasyl</div>
+            <div class="talk-details">
+              Deutsches Literaturarchiv Marbach, 25-27 October 2022.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Hilde Domin and the German Literature Archive Marbach"</span
+            >
+            <div class="talk-details">
+              One year Hilde Domin Programme (German Academic Exchange Service)
+            </div>
+            <div class="talk-details">Berlin, 13 October 2022.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Kanonkritik und quantitative digitale Literaturwissenschaft.
+              Deutschsprachiger Einakter (1740–1850)"</span
+            >
+            <div class="talk-details">
+              StartScience - Mentoring Programm der Universität Stuttgart
+            </div>
+            <div class="talk-details">
+              Universität Stuttgart, 29 April 2022.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Dramatische Metadaten. Die Datenbank deutschsprachiger Einakter
+              1740–1850"</span
+            >
+            <div class="talk-authors">with Frank Fischer</div>
+            <div class="talk-details">
+              DHd2022: Kulturen des digitalen Gedächtnisses
+            </div>
+            <div class="talk-details">Universität Potsdam, 10 March 2022.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Mit den wenigsten Mitteln die größten Effekte – Die Datenbank
+              deutschsprachiger Einakter 1740–1850 und ihre digitale
+              Umgebung"</span
+            >
+            <div class="talk-authors">with Frank Fischer</div>
+            <div class="talk-details">
+              Kolloquium ‘Phänomenologie der Digital Humanities‘
+            </div>
+            <div class="talk-details">
+              Freie Universität Berlin, 6 January 2022.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Einakter, poetische Ökonomie und eine digitale Datenbank"</span
+            >
+            <div class="talk-details">
+              69th National Postgraduate Colloquium in German Studies organised
+              in association with the Institute of Modern Languages Research
+              (IMLR - formerly Institute of Germanic & Romance Studies)
+            </div>
+            <div class="talk-details">
+              University of London, 26 November 2021.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Is There a Nobel Effect? Translations after the Nobel
+              Prize"</span
+            >
+            <div class="talk-authors">with Sandra Richter</div>
+            <div class="talk-details">
+              Literature in the Nobel Era. Theoretical, archival, and critical
+              approaches to the Nobel Prize in Literature.
+            </div>
+            <div class="talk-details">
+              German Literature Archive Marbach, 27 September 2021.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Datenbank deutschsprachiger Einakter (1740er–1850er)"</span
+            >
+            <div class="talk-details">
+              vDHd2021-Event "Young Researcher Infrastruktur-Pitch" von
+              CLARIAHde
+            </div>
+            <div class="talk-details">vDHd2021, 24 March 2021.</div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Die Einakter des 18. und frühen 19. Jahrhunderts"</span
+            >
+            <div class="talk-details">
+              Prof. Sigrid Köhlers Kolloquium (Deutsches Seminar)
+            </div>
+            <div class="talk-details">
+              Universität Tübingen, 22 January 2019.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Die Einakter des 18. und frühen 19. Jahrhunderts im
+              Gotha-Bestand"</span
+            >
+            <div class="talk-details">Herzog-Ernst-Kolloquium</div>
+            <div class="talk-details">
+              Forschungszentrum Gotha, 1 November 2018.
+            </div>
+          </li>
+          <li class="talk">
+            <span class="talk-title"
+              >"Lachen statt Gähnen. Die moralische und ästhetische
+              Heterogenität des Theaterabends im 18. Jahrhundert"</span
+            >
+            <div class="talk-details">
+              Jahrestagung der Deutschen Gesellschaft zur Erforschung des 18.
+              Jahrhunderts
+            </div>
+            <div class="talk-details">
+              Universität Paderborn, 22 September 2018.
+            </div>
+          </li>
         </ul>
+      </div>
     </div>
-    </div>
-</body>
-
+  </body>
 </html>

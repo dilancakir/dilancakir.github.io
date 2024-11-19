@@ -8,9 +8,11 @@
       :root {
         --bg-color: #ffffff;
         --text-color: #222222;
-        --accent-color: #007acc;
-        --light-gray: #f8f9fa;
-        --shadow: rgba(0, 0, 0, 0.05);
+        --link-color: #007acc;
+        --highlight-color: #ff4081;
+        --nav-bg: #ffffff;
+        --nav-link-color: #222222;
+        --shadow-color: rgba(0, 0, 0, 0.05);
       }
 
       body {
@@ -19,123 +21,148 @@
         color: var(--text-color);
         margin: 0;
         padding: 0;
-        line-height: 1.6;
       }
 
       nav {
-        background-color: var(--bg-color);
+        background-color: var(--nav-bg);
         padding: 10px 20px;
         text-align: center;
-        border-bottom: 1px solid var(--light-gray);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px var(--shadow-color);
       }
 
       nav a {
-        color: var(--text-color);
-        margin: 0 15px;
+        color: var(--nav-link-color);
+        margin: 0 10px;
         text-decoration: none;
-        font-size: 0.95em;
-        font-weight: 500;
+        font-size: 0.9em;
+        font-weight: 400;
         transition: color 0.3s;
       }
 
       nav a:hover {
-        color: var(--accent-color);
+        color: var(--highlight-color);
       }
 
       .hero {
-        padding: 60px 20px;
+        padding: 40px 20px;
         text-align: center;
-        background-color: var(--light-gray);
         color: var(--text-color);
       }
 
       .hero h1 {
-        font-size: 2.4em;
+        font-size: 2.2em;
         margin: 0;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+        font-weight: bold;
       }
 
       .hero p {
-        margin: 15px 0 20px;
+        margin-top: 10px;
         font-size: 1em;
         font-weight: 300;
+        color: #555555;
       }
 
-      .hero .social-links {
+      .social-links {
         margin-top: 20px;
       }
 
       .social-links a {
+        font-size: 1em;
         margin: 0 10px;
+        color: var(--link-color);
         text-decoration: none;
-        color: var(--accent-color);
-        font-size: 1.2em;
+        transition: color 0.3s;
       }
 
       .social-links a:hover {
-        color: var(--text-color);
+        color: var(--highlight-color);
       }
 
       .content {
         max-width: 800px;
         margin: 40px auto;
         padding: 20px;
-        color: var(--text-color);
+        text-align: left;
       }
 
       .content h2 {
-        font-size: 1.8em;
-        font-weight: bold;
+        font-size: 1.5em;
         margin-bottom: 20px;
+      }
+
+      .content p {
+        font-size: 1em;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      .content a {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .content a:hover {
+        color: var(--highlight-color);
       }
 
       .recent-publications-section {
         max-width: 900px;
         margin: 50px auto;
         padding: 20px;
+        text-align: center;
+      }
+
+      .recent-publications-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
       }
 
       .recent-publications {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 20px;
+        justify-content: center;
       }
 
       .publication {
-        background: var(--light-gray);
-        padding: 20px;
-        border-radius: 8px;
         text-align: center;
-        box-shadow: 0 4px 6px var(--shadow);
         transition: transform 0.3s;
       }
 
       .publication:hover {
-        transform: translateY(-5px);
+        transform: scale(1.05);
       }
 
       .publication img {
         width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+      }
+
+      .publication p {
+        margin-top: 10px;
       }
 
       footer {
-        background-color: var(--light-gray);
-        padding: 20px;
         text-align: center;
-        font-size: 0.85em;
+        padding: 20px;
+        background-color: var(--nav-bg);
+        color: var(--nav-link-color);
+        font-size: 0.8em;
         margin-top: 40px;
       }
 
       footer a {
-        color: var(--accent-color);
+        color: var(--link-color);
         text-decoration: none;
       }
 
       footer a:hover {
-        color: var(--text-color);
+        color: var(--highlight-color);
       }
     </style>
   </head>
@@ -155,8 +182,10 @@
       <h1>Dîlan Canan Çakir</h1>
       <p>Postdoc | Freie Universität Berlin</p>
       <div class="social-links">
-        <a href="mailto:dilan.cakir@fu-berlin.de">✉️</a>
+        <a href="mailto:dilan.cakir@fu-berlin.de">E-Mail</a>
         <a href="https://orcid.org/0009-0001-0013-7205" target="_blank">ORCID</a>
+        <a href="https://www.instagram.com/dilan.c.ckr" target="_blank">Instagram</a>
+        <a href="https://bsky.app/profile/dilan-c.bsky.social" target="_blank">Bluesky</a>
         <a href="https://literatur.social/@DilanCakir" target="_blank">Mastodon</a>
       </div>
     </div>
@@ -169,12 +198,12 @@
         </a>.
       </p>
       <p>
-        Research interests: German literature (18th - 21st century), activism and literature, theater studies, game studies, digital literature, and digital humanities.
+        research interests: German literature (18th - 21st century), activism and literature, theater studies, game studies and literature, digital literature, digital humanities (computational literary studies)
       </p>
     </div>
 
     <div class="recent-publications-section">
-      <h2>Recent Publications</h2>
+      <h2>recent publications</h2>
       <div class="recent-publications">
         <div class="publication">
           <a href="https://doi.org/10.1515/9783111334059" target="_blank">
@@ -188,11 +217,29 @@
           </a>
           <p><a href="https://doi.org/10.5281/zenodo.10863142" target="_blank">Link to poster</a></p>
         </div>
+        <div class="publication">
+          <a href="https://einakter.dracor.org/" target="_blank">
+            <img src="img/1Akter DB Startseite.webp" alt="EinakterDB" />
+          </a>
+          <p><a href="https://einakter.dracor.org/" target="_blank">Link to database</a></p>
+        </div>
+        <div class="publication">
+          <a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">
+            <img src="img/deckblatt.webp" alt="Deckblatt" />
+          </a>
+          <p><a href="https://www.herder.de/-/media/files/herder/zusatzdownloads/9783534640171_OA.pdf#page=338" target="_blank">Link to text</a></p>
+        </div>
+        <div class="publication">
+          <a href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/" target="_blank">
+            <img src="img/articulations.webp" alt="Articulations" />
+          </a>
+          <p><a href="https://articulations.temporal-communities.de/contributions/practical-modelling-of-literature/" target="_blank">Link to text</a></p>
+        </div>
       </div>
     </div>
 
     <footer>
-      2024 © Dîlan Canan Çakir | <a href="mailto:dilan.cakir@fu-berlin.de">Contact</a>
+      2024 Dîlan Canan Çakir. <a href="mailto:dilan.cakir@fu-berlin.de">Contact</a>
     </footer>
   </body>
 </html>

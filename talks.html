@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Talks</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
       :root {
         --bg-color: #f0f4f8;
         --text-color: #333;
@@ -16,7 +18,7 @@
       }
 
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
@@ -25,7 +27,7 @@
 
       nav {
         background-color: var(--nav-bg);
-        padding: 1em;
+        padding: 0.8em;
         text-align: center;
         position: sticky;
         top: 0;
@@ -35,9 +37,10 @@
 
       nav a {
         color: var(--nav-link-color);
-        margin: 0 15px;
+        margin: 0 10px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 400;
+        font-size: 0.9em;
         transition: color 0.3s;
       }
 
@@ -48,19 +51,20 @@
 
       .content {
         max-width: 900px;
-        margin: 50px auto;
+        margin: 30px auto;
         padding: 20px;
         text-align: left;
       }
 
       h1 {
         text-align: center;
-        font-size: 2em;
+        font-size: 1.8em;
         margin-bottom: 20px;
+        font-weight: 400;
       }
 
       p {
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 1.6;
         color: #555;
         text-align: center;
@@ -72,33 +76,35 @@
       }
 
       .talk {
-        margin-bottom: 20px;
-        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-size: 0.9em;
         line-height: 1.4;
       }
 
       .talk-title {
-        font-weight: bold;
+        font-weight: 400;
+        font-size: 1em;
       }
 
       .talk-authors {
         font-style: italic;
-        font-size: 0.9em;
+        font-size: 0.85em;
         color: #666;
         margin-top: 5px;
       }
 
       .talk-details {
         margin-top: 5px;
-        font-size: 0.9em;
+        font-size: 0.85em;
         color: #666;
       }
+
       .talks-container {
-        background-color: white; /* Hintergrundfarbe */
-        padding: 20px; /* Innenabstand */
-        border-radius: 8px; /* Abgerundete Ecken */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Kasten */
-        margin-top: 20px; /* Abstand nach oben */
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
       }
     </style>
   </head>

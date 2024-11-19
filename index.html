@@ -47,28 +47,13 @@
       }
 
       .hero {
-        background-image: url("img/cover.webp");
-        background-size: cover;
-        background-position: center;
-        padding: 60px 20px;
+        padding: 40px 20px;
         text-align: center;
-        color: white;
-        position: relative;
-      }
-
-      .hero::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
+        color: var(--text-color);
       }
 
       .hero h1 {
-        font-size: 2em;
+        font-size: 2.2em;
         margin: 0;
         font-weight: bold;
       }
@@ -77,6 +62,7 @@
         margin-top: 10px;
         font-size: 1em;
         font-weight: 300;
+        color: #555555;
       }
 
       .social-links {
@@ -86,7 +72,7 @@
       .social-links a {
         font-size: 1em;
         margin: 0 10px;
-        color: white;
+        color: var(--link-color);
         text-decoration: none;
         transition: color 0.3s;
       }

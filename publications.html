@@ -9,7 +9,7 @@
       /* Spinner-Stil */
       .spinner {
         border: 8px solid #f3f3f3; /* Hellgrauer Hintergrund */
-        border-top: 8px solid #ffe4e1; /* altrosa Segment */
+        border-top: 8px solid #ffe4e1; /* Altrosa Segment */
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -45,6 +45,7 @@
         background-color: #333; /* Dunkler Hintergrund */
         color: #fff; /* Helle Schriftfarbe */
         display: flex;
+        flex-wrap: wrap; /* Ermöglicht Umbruch in Handyansicht */
         justify-content: center;
         padding: 10px;
       }
@@ -52,9 +53,10 @@
       nav a {
         color: #f0f0f0; /* Helle Schriftfarbe */
         text-decoration: none;
-        margin: 0 15px;
-        font-size: 14px; /* Reduzierte Schriftgröße */
-        font-family: Arial, sans-serif;
+        margin: 5px 10px; /* Abstände zwischen Links */
+        font-size: 16px; /* Elegante Schriftgröße */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Elegante Schriftart */
+        font-weight: 300; /* Schlanke Schrift */
       }
 
       nav a:hover {
@@ -65,6 +67,19 @@
       nav a:focus {
         color: #add8e6; /* Hellblau bei Fokus */
         outline: none;
+      }
+
+      /* Responsives Design für kleine Bildschirme */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column; /* Links werden untereinander angeordnet */
+          align-items: center;
+        }
+
+        nav a {
+          font-size: 14px; /* Kleinere Schriftgröße auf Handys */
+          margin: 8px 0;
+        }
       }
     </style>
   </head>

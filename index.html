@@ -48,44 +48,45 @@
       }
 
       .hero {
-        background-image: url("img/cover.webp");
-        background-size: cover;
-        background-position: center;
-        padding: 40px 20px;
-        text-align: center;
-        color: white;
-        position: relative;
-      }
+  background-image: url("img/cover.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
 
-      .hero::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
-      }
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* Weißer Overlay für einen blasseren Effekt */
+  z-index: -1;
+}
 
-      .hero h1 {
-        font-size: 2em;
-        margin: 0;
-        font-weight: bold;
-      }
+.hero h1 {
+  font-size: 2em;
+  margin: 0;
+  font-weight: bold;
+}
 
-      .divider {
-        width: 100px;
-        height: 2px;
-        margin: 15px auto;
-        background-color: var(--divider-color);
-      }
+.hero p {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: 300;
+}
 
-      .hero p {
-        margin-top: 10px;
-        font-size: 1em;
-        font-weight: 300;
-      }
+.divider {
+  width: 100px;
+  height: 2px;
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 
       .social-links {
         margin-top: 20px;

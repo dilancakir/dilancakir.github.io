@@ -6,16 +6,20 @@
     <title>Teaching</title>
     <style>
       body {
-        font-family: "Arial", sans-serif;
-        background-color: #f4f4f9;
+        font-family: "Roboto", Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         margin: 0;
         padding: 0;
-        color: #333;
       }
       nav {
-        background-color: #333;
-        padding: 1em;
+        background-color: var(--nav-bg);
+        padding: 10px 20px;
         text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px var(--shadow-color);
       }
       nav a {
         color: white;
@@ -23,8 +27,13 @@
         text-decoration: none;
         font-weight: bold;
       }
-      nav a:hover {
-        text-decoration: underline;
+        nav a {
+        color: var(--nav-link-color);
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: 400;
+        transition: color 0.3s;
       }
       h2 {
         text-align: center;

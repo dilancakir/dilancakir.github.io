@@ -340,3 +340,44 @@ h2 {
     padding-left: 15px;
   }
 }
+* Stile speziell für die Talks-Seite */
+.talks-page {
+  background-color: var(--bg-color);
+}
+
+.talks-page .talks-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  margin-top: 20px;
+}
+
+.talks-page .talks-list {
+  list-style: none;
+  padding: 0;
+}
+
+.talks-page .talk {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.talks-page .talk-title {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.talks-page .talk-authors {
+  font-style: italic;
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.talks-page .talk-details {
+  margin-top: 5px;
+  font-size: 0.85em;
+  color: #666;
+}

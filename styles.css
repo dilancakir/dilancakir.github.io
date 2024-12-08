@@ -326,6 +326,39 @@ nav a:focus {
   font-style: italic; /* Macht den Text kursiv */
 }
 
+  /* Entfernt Abstände um die Elemente in den Readings */
+.reading {
+  margin: 0; /* Entfernt den äußeren Abstand des Listenelements */
+  padding: 0; /* Entfernt den inneren Abstand des Listenelements */
+}
+
+/* Titel fett anzeigen */
+.reading strong {
+  display: block; /* Macht den Titel als Blockelement sichtbar */
+  font-weight: bold; /* Lässt den Titel fett erscheinen */
+  margin-bottom: 5px; /* Optional: ein kleiner Abstand nach dem Titel */
+}
+
+/* Autorenliste kompakt anzeigen */
+.reading .reading-authors {
+  font-style: italic; /* Setzt die Autorenliste kursiv */
+  margin-bottom: 5px; /* Optional: ein kleiner Abstand nach den Autoren */
+  color: #555; /* Optional: leicht gedämpfte Farbe */
+}
+
+/* Veranstaltungsdetails ohne Absatz */
+.reading p {
+  display: inline; /* Zeigt den Text inline an */
+  margin: 0; /* Entfernt den äußeren Abstand */
+  padding: 0; /* Entfernt den inneren Abstand */
+}
+
+/* Veranstaltungsort und Datum kursiv */
+.reading p i {
+  font-style: italic; /* Lässt den Text kursiv erscheinen */
+  color: #333; /* Optional: eine andere Textfarbe */
+}
+
   
 /* Container für die Veröffentlichungssektion */
 .recent-publications-section {

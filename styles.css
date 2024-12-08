@@ -233,7 +233,7 @@ footer a:hover {
   font-size: 14px;
 }
 h2 {
-  text-align: center; /* Zentriert den Text */
+  text-align: center !important; /* Zentriert den Text */
   margin-top: 40px;   /* Abstand nach oben */
   font-size: 28px;    /* Schriftgröße */
   color: var(--text-color); /* Farbe aus den Variablen */

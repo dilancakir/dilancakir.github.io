@@ -2,10 +2,10 @@
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
-  --link-color: #007acc;
-  --highlight-color: #ff4081;
-  --nav-bg: #ffffff;
-  --nav-link-color: #222222;
+  --link-color: #ff4081; /* Pink für Links */
+  --highlight-color: #ff4081; /* Highlight bleibt Pink */
+  --nav-bg: #ffffff; /* Weiße Navigation */
+  --nav-link-color: #222222; /* Dunkle Schrift für Links in der Navigation */
   --shadow-color: rgba(0, 0, 0, 0.05);
   --divider-color: #ddd;
 }
@@ -27,19 +27,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--link-color); /* Pink als Standardfarbe */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: var(--highlight-color);
+  color: var(--highlight-color); /* Intensiveres Pink beim Hover */
 }
 
 /* Navigation */
 nav {
-  background-color: var(--nav-bg);
+  background-color: var(--nav-bg); /* Weißer Hintergrund */
   padding: 10px 20px;
   text-align: center;
   position: sticky;
@@ -49,14 +49,15 @@ nav {
 }
 
 nav a {
-  color: var(--nav-link-color);
+  color: var(--nav-link-color); /* Dunkle Schrift */
   margin: 0 10px;
   font-size: 0.9em;
   font-weight: 400;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  color: var(--highlight-color);
+  color: var(--highlight-color); /* Pink beim Hover */
 }
 
 /* Hero-Bereich */
@@ -118,31 +119,101 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-/* Publikationen */
-.recent-publications {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  justify-content: center;
-}
-
-.publication {
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.publication:hover {
-  transform: scale(1.05);
-}
-
-.publication img {
-  width: 100%;
+/* Organised Conferences */
+.conference-container {
+  background-color: var(--bg-color);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px var(--shadow-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-.publication p {
+.conference {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.conference h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.conference ul {
+  list-style-type: disc; /* Listenpunkte */
+  margin: 10px 0 0 20px; /* Einrückung */
+  padding-left: 20px; /* Zusätzlicher Abstand */
+}
+
+.conference ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.conference a {
+  color: var(--link-color);
+  text-decoration: underline; /* Klar als Link erkennbar */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.conference a:hover {
+  color: var(--highlight-color);
+}
+
+/* Index-Seite */
+.index-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.index-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.index-container .card {
+  display: inline-block;
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.index-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.index-container .card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.index-container .card p {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.index-container .card a {
+  display: block;
   margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--link-color);
+  font-weight: bold;
+}
+
+.index-container .card a:hover {
+  color: var(--highlight-color);
 }
 
 /* Spinner-Stil */
@@ -153,7 +224,7 @@ nav a:hover {
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
-  margin: 20px auto;
+  margin: 0 auto;
   display: block;
 }
 
@@ -166,39 +237,15 @@ nav a:hover {
   }
 }
 
-/* Spinner initial sichtbar */
-#loader {
-  display: block;
-  text-align: center;
-}
-
-/* Spinner verstecken, wenn geladen */
-#loader.hidden {
-  display: none;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--nav-bg);
-  color: var(--nav-link-color);
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-footer a:hover {
-  color: var(--highlight-color);
-}
-
-/* Medienabfragen für Mobilgeräte */
-@media (max-width: 600px) {
-  nav a {
-    display: block;
-    margin: 8px 0;
+/* Responsives Design */
+@media (max-width: 768px) {
+  .index-container .card {
+    width: calc(50% - 20px);
   }
+}
 
-  .content {
-    padding: 10px;
+@media (max-width: 480px) {
+  .index-container .card {
+    width: 100%;
   }
 }

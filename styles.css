@@ -315,6 +315,18 @@ nav a:focus {
   .cv-section ul li {
     padding-left: 15px;
   }
+
+/* Stil für Vortragstitel (fett) */
+.talk .talk-title {
+  font-weight: bold; /* Macht den Text fett */
+}
+
+/* Stil für Ort und Datum (kursiv) */
+.talk .talk-details {
+  font-style: italic; /* Macht den Text kursiv */
+}
+
+  
 /* Container für die Veröffentlichungssektion */
 .recent-publications-section {
   padding: 20px;

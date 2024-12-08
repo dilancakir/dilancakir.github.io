@@ -239,5 +239,89 @@ h2 {
   color: var(--text-color); /* Farbe aus den Variablen */
   font-weight: 600;   /* Schriftgewicht */
 }
+/* Stile für CV-Bereich */
+.cv-section {
+  margin-bottom: 30px; /* Abstand zwischen den Abschnitten */
+  padding-bottom: 15px; /* Abstand am Ende jedes Abschnitts */
+  border-bottom: 1px solid var(--divider-color); /* Dezente Linie zwischen Abschnitten */
+}
+
+.cv-section ul {
+  list-style-type: none; /* Keine Standard-Aufzählungspunkte */
+  margin: 10px 0 20px 20px; /* Abstand zur linken Seite */
+  padding-left: 20px; /* Zusätzlicher Abstand */
+}
+
+.cv-section ul li {
+  position: relative;
+  padding-left: 20px; /* Platz für das Symbol links */
+  margin-bottom: 10px;
+}
+
+.cv-section ul li::before {
+  content: "●"; /* Aufzählungspunkt */
+  position: absolute;
+  left: 0;
+  color: var(--highlight-color); /* Akzentfarbe für Aufzählungspunkt */
+  font-size: 0.8em;
+}
+
+/* H1 für die CV-Seite */
+.content h1 {
+  font-size: 2.4em; /* Größer als Standard */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* H2 in der CV-Seite */
+.cv-section h2 {
+  font-size: 1.8em; /* Größer für bessere Lesbarkeit */
+  color: var(--text-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Subtext-Stile */
+.subtext {
+  font-size: 0.85em;
+  color: var(--text-color);
+  font-style: italic; /* Kursiv für leichtere Abhebung */
+  margin-top: -5px; /* Weniger Abstand nach oben */
+  margin-bottom: 10px;
+}
+
+/* Links in der CV-Seite */
+.cv-section a {
+  color: var(--link-color);
+  text-decoration: underline; /* Klar als Link erkennbar */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.cv-section a:hover {
+  color: var(--highlight-color);
+}
+
+/* Medienabfragen für Mobilgeräte */
+@media (max-width: 600px) {
+  .content h1 {
+    font-size: 1.8em;
+  }
+
+  .cv-section h2 {
+    font-size: 1.5em;
+  }
+
+  .cv-section ul {
+    padding-left: 15px; /* Weniger Einzug auf kleineren Bildschirmen */
+  }
+
+  .cv-section ul li {
+    padding-left: 15px; /* Weniger Platz für Aufzählungspunkt */
+  }
+}
 
 

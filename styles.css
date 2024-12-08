@@ -2,10 +2,10 @@
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
-  --link-color: #007acc; /* Blau für Links */
-  --highlight-color: #ff4081; /* Highlight Pink */
-  --nav-bg: #ffffff; /* Navigation bleibt weiß */
-  --nav-link-color: #222222; /* Dunkle Schrift für Links in der Navigation */
+  --link-color: #007acc;
+  --highlight-color: #ff4081;
+  --nav-bg: #ffffff;
+  --nav-link-color: #222222;
   --shadow-color: rgba(0, 0, 0, 0.05);
   --divider-color: #ddd;
 }
@@ -53,7 +53,6 @@ nav a {
   margin: 0 10px;
   font-size: 0.9em;
   font-weight: 400;
-  transition: color 0.3s;
 }
 
 nav a:hover {
@@ -84,12 +83,10 @@ nav a:hover {
 
 .hero h1 {
   font-size: 2em;
-  margin: 0;
   font-weight: bold;
 }
 
 .hero p {
-  margin-top: 10px;
   font-size: 1em;
   font-weight: 300;
 }
@@ -99,23 +96,6 @@ nav a:hover {
   height: 2px;
   margin: 15px auto;
   background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* Social Links */
-.social-links {
-  margin-top: 20px;
-}
-
-.social-links a {
-  font-size: 1em;
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--highlight-color);
 }
 
 /* Hauptinhalt */
@@ -138,110 +118,45 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-.content a {
-  color: var(--link-color);
-  text-decoration: none;
-  font-weight: bold;
+/* Publikationen */
+.recent-publications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-content: center;
 }
 
-.content a:hover {
-  color: var(--highlight-color);
-}
-
-/* Index-Seite */
-.index-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-.index-container h2 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
+.publication {
   text-align: center;
+  transition: transform 0.3s;
 }
 
-.index-container ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  padding-left: 20px;
+.publication:hover {
+  transform: scale(1.05);
 }
 
-.index-container ul li {
-  margin-bottom: 10px;
-  font-size: 1em;
-  line-height: 1.6;
-  color: var(--text-color);
+.publication img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-/* Publications-Seite */
-.recent-publications-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: left;
-}
-
-.recent-publications-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
-
-.recent-publications ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  padding-left: 20px;
-}
-
-.recent-publications ul li {
-  margin-bottom: 10px;
-  font-size: 1em;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-.recent-publications ul li a {
-  color: var(--link-color);
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.recent-publications ul li a:hover {
-  color: var(--highlight-color);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--nav-bg);
-  color: var(--nav-link-color);
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-footer a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--highlight-color);
+.publication p {
+  margin-top: 10px;
 }
 
 /* Spinner-Stil */
 .spinner {
   border: 8px solid #f3f3f3; /* Hellgrauer Hintergrund */
-  border-top: 8px solid var(--highlight-color); /* Highlight Segment */
+  border-top: 8px solid var(--highlight-color);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
-  margin: 0 auto;
+  margin: 20px auto;
   display: block;
 }
 
-/* Animation des Spinners */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -255,7 +170,6 @@ footer a:hover {
 #loader {
   display: block;
   text-align: center;
-  margin: 20px 0;
 }
 
 /* Spinner verstecken, wenn geladen */
@@ -263,13 +177,28 @@ footer a:hover {
   display: none;
 }
 
-/* Responsives Design */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 1.8em;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--nav-bg);
+  color: var(--nav-link-color);
+  font-size: 0.8em;
+  margin-top: 20px;
+}
+
+footer a:hover {
+  color: var(--highlight-color);
+}
+
+/* Medienabfragen für Mobilgeräte */
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 8px 0;
   }
 
-  .index-container ul, .recent-publications ul {
-    padding-left: 10px;
+  .content {
+    padding: 10px;
   }
 }

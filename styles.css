@@ -213,7 +213,6 @@ footer a:hover {
   padding-left: 0; /* Verhindert unnötiges Padding */
 }
 
-
 .conference {
   margin-bottom: 20px;
   padding-bottom: 15px;
@@ -406,7 +405,7 @@ h2 {
   color: #666;
 }
 
-
+/* Stile speziell für die Readings-Seite */
 .readings-page .reading-list {
     list-style: none; /* Keine Aufzählungszeichen */
     padding: 0; /* Kein zusätzlicher Innenabstand */
@@ -453,4 +452,3 @@ h2 {
     font-size: 0.85em;
     color: #666;
 }
-

@@ -318,6 +318,7 @@ nav a:focus {
 /* Container für die Veröffentlichungssektion */
 .recent-publications-section {
   padding: 20px;
+  text-align: center; /* Zentriert den Titel */
 }
 
 .recent-publications {
@@ -328,9 +329,8 @@ nav a:focus {
 }
 
 .publication {
-  flex: 1 1 calc(33% - 20px);  /* Jede Veröffentlichung nimmt 33% des Containers ein (minus der Gap) */
-  min-width: 250px;            /* Mindestbreite für jedes Element */
-  max-width: 300px;            /* Maximale Breite für jedes Element */
+  flex: 1 1 calc(25% - 20px);  /* Jede Veröffentlichung nimmt 25% des Containers ein (minus der Gap) */
+  max-width: 200px;            /* Begrenzung der maximalen Breite für jedes Element */
   display: flex;
   flex-direction: column;      /* Elemente innerhalb der Veröffentlichung vertikal anordnen */
   align-items: center;         /* Zentriert Inhalte innerhalb des Elements */
@@ -338,28 +338,34 @@ nav a:focus {
 }
 
 .publication img {
-  width: 25%;                  /* Bilder sind jetzt nur noch 25% der Breite des Container-Elements */
-  height: auto;                /* Höhe wird proportional zur Breite angepasst */
-  border-radius: 8px;          /* Abgerundete Ecken für die Bilder */
+  width: 100%;                /* Bilder füllen das Container-Element aus */
+  height: auto;               /* Höhe wird proportional zur Breite angepasst */
+  border-radius: 8px;         /* Abgerundete Ecken für die Bilder */
 }
 
 .publication p {
-  margin-top: 10px;            /* Abstand zwischen Bild und Text */
-  font-size: 14px;             /* Schriftgröße für den Text */
+  margin-top: 10px;           /* Abstand zwischen Bild und Text */
+  font-size: 14px;            /* Schriftgröße für den Text */
 }
 
 .publication a {
-  color: #333;                 /* Link-Farbe */
-  text-decoration: underline;  /* Unterstreichung von Links */
-  font-weight: bold;           /* Macht die Links fett */
+  color: #333;                /* Link-Farbe */
+  text-decoration: underline; /* Unterstreichung von Links */
+  font-weight: bold;          /* Macht die Links fett */
 }
 
 .publication a:hover {
-  color: #007bff;              /* Link-Farbe bei Hover */
-  text-decoration: underline;  /* Unterstreicht Links bei Hover */
+  color: #007bff;             /* Link-Farbe bei Hover */
+  text-decoration: none;      /* Entfernt die Unterstreichung bei Hover */
 }
 
 /* Responsive Anpassungen */
+@media (max-width: 1200px) {
+  .publication {
+    flex: 1 1 calc(33% - 20px);  /* Auf mittelgroßen Bildschirmen nehmen die Veröffentlichungen 33% des Containers ein */
+  }
+}
+
 @media (max-width: 768px) {
   .publication {
     flex: 1 1 calc(50% - 20px);  /* Auf kleineren Bildschirmen nehmen die Veröffentlichungen 50% des Containers ein */
@@ -371,7 +377,8 @@ nav a:focus {
     flex: 1 1 100%;  /* Auf sehr kleinen Bildschirmen nimmt jede Veröffentlichung 100% der Breite ein */
   }
 }
-  /* Footer zentrieren */
+
+/* Footer zentrieren */
 footer {
   text-align: center; /* Zentriert den Text im Footer */
   padding: 20px 0;    /* Fügt oben und unten etwas Abstand hinzu */
@@ -388,7 +395,3 @@ footer a:hover {
   color: #007bff; /* Link-Farbe bei Hover */
   text-decoration: underline; /* Unterstreicht Links bei Hover */
 }
-
-
-
-

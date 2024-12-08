@@ -236,7 +236,7 @@ footer a:hover {
 
 /* H2-Stil */
 h2 {
-  text-align: center !important;
+  text-align: left !important;
   margin-top: 40px;
   font-size: 28px;
   color: var(--text-color);

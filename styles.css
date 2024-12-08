@@ -340,9 +340,10 @@ h2 {
     padding-left: 15px;
   }
 }
-* Stile speziell für die Talks-Seite */
+/* Stile speziell für die Talks-Seite */
 .talks-page {
   background-color: var(--bg-color);
+  padding: 20px;
 }
 
 .talks-page .talks-container {
@@ -351,27 +352,37 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 2px 10px var(--shadow-color);
   margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .talks-page .talks-list {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Keine Bullet Points */
+  padding: 0; /* Kein zusätzlicher Innenabstand */
+  margin: 0; /* Kein zusätzlicher Außenabstand */
 }
 
 .talks-page .talk {
-  margin-bottom: 15px;
-  font-size: 0.9em;
-  line-height: 1.4;
+  margin-bottom: 15px; /* Abstand zwischen den Talks */
+  padding: 10px; /* Innenabstand */
+  border-bottom: 1px solid var(--divider-color); /* Trennung der Talks */
+}
+
+.talks-page .talk:last-child {
+  border-bottom: none; /* Kein unterer Rand beim letzten Eintrag */
 }
 
 .talks-page .talk-title {
-  font-weight: 400;
+  font-weight: bold;
   font-size: 1em;
+  color: var(--text-color);
+  margin: 0;
 }
 
 .talks-page .talk-authors {
   font-style: italic;
-  font-size: 0.85em;
+  font-size: 0.9em;
   color: #666;
   margin-top: 5px;
 }

@@ -315,8 +315,7 @@ nav a:focus {
   .cv-section ul li {
     padding-left: 15px;
   }
-}
-/* Container für die Veröffentlichung */
+/* Container für die Veröffentlichungssektion */
 .recent-publications-section {
   padding: 20px;
 }
@@ -339,25 +338,25 @@ nav a:focus {
 }
 
 .publication img {
-  width: 100%;                /* Bilder füllen das Container-Element aus */
-  height: auto;               /* Höhe wird proportional zur Breite angepasst */
-  border-radius: 8px;         /* Abgerundete Ecken für die Bilder */
+  width: 25%;                  /* Bilder sind jetzt nur noch 25% der Breite des Container-Elements */
+  height: auto;                /* Höhe wird proportional zur Breite angepasst */
+  border-radius: 8px;          /* Abgerundete Ecken für die Bilder */
 }
 
 .publication p {
-  margin-top: 10px;           /* Abstand zwischen Bild und Text */
-  font-size: 14px;            /* Schriftgröße für den Text */
+  margin-top: 10px;            /* Abstand zwischen Bild und Text */
+  font-size: 14px;             /* Schriftgröße für den Text */
 }
 
 .publication a {
-  color: #333;                /* Link-Farbe */
-  text-decoration: none;      /* Entfernt die Unterstreichung von Links */
-  font-weight: bold;          /* Macht die Links fett */
+  color: #333;                 /* Link-Farbe */
+  text-decoration: underline;  /* Unterstreichung von Links */
+  font-weight: bold;           /* Macht die Links fett */
 }
 
 .publication a:hover {
-  color: #007bff;             /* Link-Farbe bei Hover */
-  text-decoration: underline; /* Unterstreicht Links bei Hover */
+  color: #007bff;              /* Link-Farbe bei Hover */
+  text-decoration: underline;  /* Unterstreicht Links bei Hover */
 }
 
 /* Responsive Anpassungen */
@@ -372,6 +371,24 @@ nav a:focus {
     flex: 1 1 100%;  /* Auf sehr kleinen Bildschirmen nimmt jede Veröffentlichung 100% der Breite ein */
   }
 }
+  /* Footer zentrieren */
+footer {
+  text-align: center; /* Zentriert den Text im Footer */
+  padding: 20px 0;    /* Fügt oben und unten etwas Abstand hinzu */
+  background-color: #f4f4f4; /* Optional: fügt dem Footer einen Hintergrund hinzu */
+}
+
+/* Link im Footer */
+footer a {
+  color: #333; /* Link-Farbe */
+  text-decoration: underline; /* Unterstreichung */
+}
+
+footer a:hover {
+  color: #007bff; /* Link-Farbe bei Hover */
+  text-decoration: underline; /* Unterstreicht Links bei Hover */
+}
+
 
 
 

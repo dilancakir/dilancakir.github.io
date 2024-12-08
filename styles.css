@@ -189,3 +189,47 @@ footer a {
 footer a:hover {
   color: var(--highlight-color);
 }
+
+/* Konferenz-Seiten-spezifische Stile */
+.conference-container {
+  background-color: white;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.conference {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.conference a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--link-color);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.conference a:hover {
+  text-decoration: underline;
+  color: var(--highlight-color);
+}
+
+.conference p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.conference span {
+  font-style: italic;
+  color: #666;
+  font-size: 14px;
+}
+

@@ -192,14 +192,27 @@ footer a:hover {
 }
 
 /* Konferenz-Seiten-spezifische Stile */
+/* Konferenzcontainer */
 .conference-container {
   background-color: white;
   max-width: 800px;
   margin: 40px auto;
-  padding: 30px;
+  padding: 30px 20px; /* Padding von links und rechts anpassen */
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--shadow-color);
 }
+
+/* Überschrift innerhalb des Konferenzcontainers */
+.conference-container h2 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 0; /* Verhindert zusätzliches Top-Margin */
+  margin-bottom: 15px;
+  text-align: left;
+  padding-left: 0; /* Verhindert unnötiges Padding */
+}
+
 
 .conference {
   margin-bottom: 20px;

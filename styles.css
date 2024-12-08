@@ -20,6 +20,23 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  font-family: "Roboto", Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
 /* Navigation */
 nav {
   background-color: var(--nav-bg);
@@ -34,10 +51,8 @@ nav {
 nav a {
   color: var(--nav-link-color);
   margin: 0 10px;
-  text-decoration: none;
   font-size: 0.9em;
   font-weight: 400;
-  transition: color 0.3s;
 }
 
 nav a:hover {
@@ -68,12 +83,10 @@ nav a:hover {
 
 .hero h1 {
   font-size: 2em;
-  margin: 0;
   font-weight: bold;
 }
 
 .hero p {
-  margin-top: 10px;
   font-size: 1em;
   font-weight: 300;
 }
@@ -83,23 +96,6 @@ nav a:hover {
   height: 2px;
   margin: 15px auto;
   background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* Social Links */
-.social-links {
-  margin-top: 20px;
-}
-
-.social-links a {
-  font-size: 1em;
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--highlight-color);
 }
 
 /* Hauptinhalt */
@@ -122,29 +118,7 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-.content a {
-  color: var(--link-color);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.content a:hover {
-  color: var(--highlight-color);
-}
-
 /* Publikationen */
-.recent-publications-section {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-  text-align: center;
-}
-
-.recent-publications-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
-
 .recent-publications {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -171,172 +145,18 @@ nav a:hover {
   margin-top: 10px;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--nav-bg);
-  color: var(--nav-link-color);
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-footer a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--highlight-color);
-}
-
-/* Konferenz-Seiten-spezifische Stile */
-.conference-container {
-  background-color: white;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.conference {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--divider-color);
-}
-
-.conference a {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--link-color);
-  text-decoration: none;
-  display: block;
-  transition: color 0.3s, text-decoration 0.3s;
-}
-
-.conference a:hover {
-  text-decoration: underline;
-  color: var(--highlight-color);
-}
-
-.conference p {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
-}
-
-.conference span {
-  font-style: italic;
-  color: #666;
-  font-size: 14px;
-}
-h2 {
-  text-align: center !important; /* Zentriert den Text */
-  margin-top: 40px;   /* Abstand nach oben */
-  font-size: 28px;    /* Schriftgröße */
-  color: var(--text-color); /* Farbe aus den Variablen */
-  font-weight: 600;   /* Schriftgewicht */
-}
-/* Stile für CV-Bereich */
-.cv-section {
-  margin-bottom: 30px; /* Abstand zwischen den Abschnitten */
-  padding-bottom: 15px; /* Abstand am Ende jedes Abschnitts */
-  border-bottom: 1px solid var(--divider-color); /* Dezente Linie zwischen Abschnitten */
-}
-
-.cv-section ul {
-  list-style-type: none; /* Keine Standard-Aufzählungspunkte */
-  margin: 10px 0 20px 20px; /* Abstand zur linken Seite */
-  padding-left: 20px; /* Zusätzlicher Abstand */
-}
-
-.cv-section ul li {
-  position: relative;
-  padding-left: 20px; /* Platz für das Symbol links */
-  margin-bottom: 10px;
-}
-
-.cv-section ul li::before {
-  content: "●"; /* Aufzählungspunkt */
-  position: absolute;
-  left: 0;
-  color: var(--highlight-color); /* Akzentfarbe für Aufzählungspunkt */
-  font-size: 0.8em;
-}
-
-/* H1 für die CV-Seite */
-.content h1 {
-  font-size: 2.4em; /* Größer als Standard */
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* H2 in der CV-Seite */
-.cv-section h2 {
-  font-size: 1.8em; /* Größer für bessere Lesbarkeit */
-  color: var(--text-color);
-  margin-top: 30px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* Subtext-Stile */
-.subtext {
-  font-size: 0.85em;
-  color: var(--text-color);
-  font-style: italic; /* Kursiv für leichtere Abhebung */
-  margin-top: -5px; /* Weniger Abstand nach oben */
-  margin-bottom: 10px;
-}
-
-/* Links in der CV-Seite */
-.cv-section a {
-  color: var(--link-color);
-  text-decoration: underline; /* Klar als Link erkennbar */
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.cv-section a:hover {
-  color: var(--highlight-color);
-}
-
-/* Medienabfragen für Mobilgeräte */
-@media (max-width: 600px) {
-  .content h1 {
-    font-size: 1.8em;
-  }
-
-  .cv-section h2 {
-    font-size: 1.5em;
-  }
-
-  .cv-section ul {
-    padding-left: 15px; /* Weniger Einzug auf kleineren Bildschirmen */
-  }
-
-  .cv-section ul li {
-    padding-left: 15px; /* Weniger Platz für Aufzählungspunkt */
-  }
-}
-
 /* Spinner-Stil */
 .spinner {
   border: 8px solid #f3f3f3; /* Hellgrauer Hintergrund */
-  border-top: 8px solid #ffe4e1; /* Altrosa Segment */
+  border-top: 8px solid var(--highlight-color);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
-  margin: 0 auto;
+  margin: 20px auto;
   display: block;
 }
 
-/* Animation des Spinners */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -350,7 +170,6 @@ h2 {
 #loader {
   display: block;
   text-align: center;
-  margin: 20px 0;
 }
 
 /* Spinner verstecken, wenn geladen */
@@ -358,47 +177,28 @@ h2 {
   display: none;
 }
 
-/* Navigation-Stil */
-nav {
-  background-color: #333; /* Dunkler Hintergrund */
-  color: #fff; /* Helle Schriftfarbe */
-  display: flex;
-  flex-wrap: wrap; /* Ermöglicht Umbruch in Handyansicht */
-  justify-content: center;
-  padding: 10px;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--nav-bg);
+  color: var(--nav-link-color);
+  font-size: 0.8em;
+  margin-top: 20px;
 }
 
-nav a {
-  color: #f0f0f0; /* Helle Schriftfarbe */
-  text-decoration: none;
-  margin: 5px 10px; /* Abstände zwischen Links */
-  font-size: 16px; /* Elegante Schriftgröße */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Elegante Schriftart */
-  font-weight: 300; /* Schlanke Schrift */
+footer a:hover {
+  color: var(--highlight-color);
 }
 
-nav a:hover {
-  color: #ffe4e1; /* Altrosa beim Hover */
-  text-decoration: underline;
-}
-
-nav a:focus {
-  color: #add8e6; /* Hellblau bei Fokus */
-  outline: none;
-}
-
-/* Responsives Design für kleine Bildschirme */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column; /* Links werden untereinander angeordnet */
-    align-items: center;
-  }
-
+/* Medienabfragen für Mobilgeräte */
+@media (max-width: 600px) {
   nav a {
-    font-size: 14px; /* Kleinere Schriftgröße auf Handys */
+    display: block;
     margin: 8px 0;
   }
+
+  .content {
+    padding: 10px;
+  }
 }
-
-
-

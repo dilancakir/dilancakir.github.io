@@ -12,7 +12,7 @@
 
 /* Grundlegendes Layout */
 body {
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;

@@ -392,16 +392,22 @@ h2 {
   font-size: 0.85em;
   color: #666;
 }
+
+
 .readings-page .reading-list {
-    list-style: disc; /* Aufzählungszeichen hinzufügen */
-    padding-left: 20px; /* Abstand für die Aufzählung */
-    margin-top: 10px; /* Kleiner Abstand zum Container */
+    list-style: none; /* Keine Aufzählungszeichen */
+    padding: 0; /* Kein zusätzlicher Innenabstand */
+    margin: 0; /* Kein zusätzlicher Außenabstand */
 }
 
 .readings-page .reading {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--divider-color);
+    margin-bottom: 15px; /* Abstand zwischen den Einträgen */
+    padding: 10px; /* Innenabstand */
+    border-bottom: 1px solid var(--divider-color); /* Trennung der Einträge */
+}
+
+.readings-page .reading:last-child {
+    border-bottom: none; /* Kein unterer Rand beim letzten Eintrag */
 }
 
 .readings-page .reading-title {
@@ -434,3 +440,4 @@ h2 {
     font-size: 0.85em;
     color: #666;
 }
+

@@ -22,6 +22,8 @@ body {
 
 /* Navigation */
 nav {
+  font-family: 'IBM Plex Mono', monospace; /* Schriftart der Menüleiste */
+  font-weight: 400; /* Standardgewicht */
   background-color: var(--nav-bg);
   color: var(--text-color);
   display: flex;
@@ -31,6 +33,8 @@ nav {
 }
 
 nav a {
+  font-family: 'IBM Plex Mono', monospace; /* Schriftart für Links in der Menüleiste */
+  font-weight: 500; /* Mittleres Gewicht */
   color: var(--text-color);
   text-decoration: none;
   margin: 5px 10px;

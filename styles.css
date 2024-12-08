@@ -364,83 +364,72 @@ nav a:focus {
 }
 
   
-/* Container für die Veröffentlichungssektion */
+/* Veröffentlichungssektion */
 .recent-publications-section {
   padding: 20px;
   text-align: center; /* Zentriert den Titel */
 }
 
 .recent-publications {
-  display: flex;          /* Setzt Flexbox ein, um die Elemente nebeneinander anzuzeigen */
-  flex-wrap: wrap;        /* Erlaubt den Elementen, bei Bedarf in die nächste Reihe umzubrechen */
-  gap: 20px;              /* Abstand zwischen den einzelnen Veröffentlichungen */
-  justify-content: center; /* Zentriert die Veröffentlichungen horizontal */
+  display: flex;            /* Aktiviert das Flexbox-Layout */
+  flex-wrap: wrap;          /* Elemente umbrechen bei Bedarf */
+  gap: 20px;                /* Abstand zwischen Elementen */
+  justify-content: center;  /* Elemente horizontal zentrieren */
 }
 
 .publication {
-  flex: 1 1 calc(25% - 20px);  /* Jede Veröffentlichung nimmt 25% des Containers ein (minus der Gap) */
-  max-width: 200px;            /* Begrenzung der maximalen Breite für jedes Element */
+  flex: 1 1 calc(25% - 20px); /* 25% Breite minus Abstand */
+  max-width: 250px;           /* Maximale Breite */
+  min-width: 200px;           /* Mindestbreite, falls Platz da ist */
   display: flex;
-  flex-direction: column;      /* Elemente innerhalb der Veröffentlichung vertikal anordnen */
-  align-items: center;         /* Zentriert Inhalte innerhalb des Elements */
-  text-align: center;          /* Zentriert den Text */
+  flex-direction: column;     /* Innerhalb des Elements vertikal anordnen */
+  align-items: center;        /* Inhalte zentrieren */
+  text-align: center;         /* Text zentrieren */
 }
 
 .publication img {
-  width: 100%;                /* Bilder füllen das Container-Element aus */
-  height: auto;               /* Höhe wird proportional zur Breite angepasst */
-  border-radius: 8px;         /* Abgerundete Ecken für die Bilder */
+  width: 100%;               /* Bilder skalieren auf die Breite des Containers */
+  height: auto;              /* Höhe proportional zur Breite */
+  border-radius: 8px;        /* Abgerundete Ecken */
 }
 
 .publication p {
-  margin-top: 10px;           /* Abstand zwischen Bild und Text */
-  font-size: 14px;            /* Schriftgröße für den Text */
+  margin-top: 10px;          /* Abstand zwischen Bild und Text */
+  font-size: 14px;           /* Schriftgröße */
 }
 
 .publication a {
-  color: #333;                /* Link-Farbe */
-  text-decoration: underline; /* Unterstreichung von Links */
-  font-weight: bold;          /* Macht die Links fett */
+  color: #333;               /* Link-Farbe */
+  text-decoration: underline; /* Unterstrichene Links */
+  font-weight: bold;         /* Fett */
 }
 
 .publication a:hover {
-  color: #007bff;             /* Link-Farbe bei Hover */
-  text-decoration: none;      /* Entfernt die Unterstreichung bei Hover */
+  color: #007bff;            /* Link-Farbe bei Hover */
+  text-decoration: none;     /* Keine Unterstreichung bei Hover */
 }
 
 /* Responsive Anpassungen */
+@media (min-width: 1201px) {
+  .publication {
+    flex: 1 1 calc(25% - 20px); /* Desktop-Ansicht: vier Spalten */
+  }
+}
+
 @media (max-width: 1200px) {
   .publication {
-    flex: 1 1 calc(33% - 20px);  /* Auf mittelgroßen Bildschirmen nehmen die Veröffentlichungen 33% des Containers ein */
+    flex: 1 1 calc(33% - 20px); /* Tablet-Ansicht: drei Spalten */
   }
 }
 
 @media (max-width: 768px) {
   .publication {
-    flex: 1 1 calc(50% - 20px);  /* Auf kleineren Bildschirmen nehmen die Veröffentlichungen 50% des Containers ein */
+    flex: 1 1 calc(50% - 20px); /* Mobile-Ansicht: zwei Spalten */
   }
 }
 
 @media (max-width: 480px) {
   .publication {
-    flex: 1 1 100%;  /* Auf sehr kleinen Bildschirmen nimmt jede Veröffentlichung 100% der Breite ein */
+    flex: 1 1 100%; /* Sehr kleine Bildschirme: eine Spalte */
   }
-}
-
-/* Footer zentrieren */
-footer {
-  text-align: center; /* Zentriert den Text im Footer */
-  padding: 20px 0;    /* Fügt oben und unten etwas Abstand hinzu */
-  background-color: #f4f4f4; /* Optional: fügt dem Footer einen Hintergrund hinzu */
-}
-
-/* Link im Footer */
-footer a {
-  color: #333; /* Link-Farbe */
-  text-decoration: underline; /* Unterstreichung */
-}
-
-footer a:hover {
-  color: #007bff; /* Link-Farbe bei Hover */
-  text-decoration: underline; /* Unterstreicht Links bei Hover */
 }

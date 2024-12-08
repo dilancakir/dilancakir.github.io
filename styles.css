@@ -4,8 +4,8 @@
   --text-color: #222222;
   --link-color: #007acc;
   --highlight-color: #ff4081;
-  --nav-bg: #ffffff;
-  --nav-link-color: #222222;
+  --nav-bg: #ffffff; /* Weißer Hintergrund */
+  --nav-link-color: #222222; /* Schwarze Schrift */
   --shadow-color: rgba(0, 0, 0, 0.05);
   --divider-color: #ddd;
 }
@@ -23,20 +23,21 @@ body {
 /* Navigation */
 nav {
   background-color: var(--nav-bg); /* Weißer Hintergrund */
-  color: var(--text-color); /* Dunkle Schrift */
+  color: var(--nav-link-color); /* Schwarze Schrift */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
+  border-bottom: 1px solid var(--divider-color); /* Optionale untere Linie */
 }
 
 nav a {
-  color: var(--text-color); /* Dunkle Schriftfarbe */
+  color: var(--nav-link-color);
   text-decoration: none;
   margin: 5px 10px;
   font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 200; /* Dünnere Schrift */
+  font-weight: 200; /* Dünne Schrift */
 }
 
 nav a:hover,
@@ -45,75 +46,21 @@ nav a:focus {
   text-decoration: underline;
 }
 
-/* Hero-Bereich */
-.hero {
-  background-image: url("img/cover.webp");
-  background-size: cover;
-  background-position: center;
-  padding: 40px 20px;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5); /* Overlay */
-  z-index: -1;
-}
-
-.hero h1 {
-  font-size: 2em;
-  margin: 0;
-  font-weight: bold;
-}
-
-.hero p {
-  margin-top: 10px;
-  font-size: 1em;
-  font-weight: 300;
-}
-
-.divider {
-  width: 100px;
-  height: 2px;
-  margin: 15px auto;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* Social Links */
-.social-links {
-  margin-top: 20px;
-}
-
-.social-links a {
-  font-size: 1em;
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--highlight-color);
-}
-
 /* Hauptinhalt */
 .content {
   max-width: 800px;
   margin: 30px auto;
   padding: 10px 20px;
   text-align: left;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .content h2 {
   font-size: 1.5em;
   margin-bottom: 15px;
+  color: var(--text-color);
 }
 
 .content p {
@@ -133,225 +80,6 @@ nav a:focus {
   color: var(--highlight-color);
 }
 
-/* Publikationen */
-.recent-publications-section {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-  text-align: center;
-}
-
-.recent-publications-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
-
-.recent-publications {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  justify-content: center;
-}
-
-.publication {
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.publication:hover {
-  transform: scale(1.05);
-}
-
-.publication img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px var(--shadow-color);
-}
-
-.publication p {
-  margin-top: 10px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--nav-bg);
-  color: var(--nav-link-color);
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-footer a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--highlight-color);
-}
-
-/* Konferenz-Seiten-spezifische Stile */
-/* Konferenzcontainer */
-.conference-container {
-  background-color: white;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px 20px; /* Padding von links und rechts anpassen */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-/* Überschrift innerhalb des Konferenzcontainers */
-.conference-container h2 {
-  font-size: 1.8em;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-top: 0; /* Verhindert zusätzliches Top-Margin */
-  margin-bottom: 15px;
-  text-align: left;
-  padding-left: 0; /* Verhindert unnötiges Padding */
-}
-
-.conference {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--divider-color);
-}
-
-.conference a {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--link-color);
-  text-decoration: none;
-  display: block;
-  transition: color 0.3s, text-decoration 0.3s;
-}
-
-.conference a:hover {
-  text-decoration: underline;
-  color: var(--highlight-color);
-}
-
-.conference p {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
-}
-
-.conference span {
-  font-style: italic;
-  color: #666;
-  font-size: 14px;
-}
-
-/* H2-Stil */
-h2 {
-  text-align: left !important;
-  margin-top: 40px;
-  font-size: 28px;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-/* CV-Bereich */
-.cv-section {
-  margin-bottom: 30px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--divider-color);
-}
-
-.cv-section ul {
-  list-style-type: none;
-  margin: 10px 0 20px 20px;
-  padding-left: 20px;
-}
-
-.cv-section ul li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
-}
-
-.cv-section ul li::before {
-  content: "●";
-  position: absolute;
-  left: 0;
-  color: var(--highlight-color);
-  font-size: 0.8em;
-}
-
-.cv-section h2 {
-  font-size: 1.8em;
-  color: var(--text-color);
-  margin-top: 30px;
-  margin-bottom: 15px;
-  text-align: left;
-  font-weight: 600;
-}
-
-.cv-section a {
-  color: var(--link-color);
-  text-decoration: underline;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.cv-section a:hover {
-  color: var(--highlight-color);
-}
-
-/* Spinner */
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #ffe4e1;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin: 0 auto;
-  display: block;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Loader */
-#loader {
-  display: block;
-  text-align: center;
-  margin: 20px 0;
-}
-
-#loader.hidden {
-  display: none;
-}
-
-/* Responsives Design */
-@media (max-width: 600px) {
-  .content h1 {
-    font-size: 1.8em;
-  }
-
-  .cv-section h2 {
-    font-size: 1.5em;
-  }
-
-  .cv-section ul {
-    padding-left: 15px;
-  }
-
-  .cv-section ul li {
-    padding-left: 15px;
-  }
-}
 /* Stile speziell für die Talks-Seite */
 .talks-page {
   background-color: var(--bg-color);
@@ -370,19 +98,19 @@ h2 {
 }
 
 .talks-page .talks-list {
-  list-style: none; /* Keine Bullet Points */
-  padding: 0; /* Kein zusätzlicher Innenabstand */
-  margin: 0; /* Kein zusätzlicher Außenabstand */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .talks-page .talk {
-  margin-bottom: 15px; /* Abstand zwischen den Talks */
-  padding: 10px; /* Innenabstand */
-  border-bottom: 1px solid var(--divider-color); /* Trennung der Talks */
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid var(--divider-color);
 }
 
 .talks-page .talk:last-child {
-  border-bottom: none; /* Kein unterer Rand beim letzten Eintrag */
+  border-bottom: none;
 }
 
 .talks-page .talk-title {
@@ -405,49 +133,23 @@ h2 {
   color: #666;
 }
 
-/* Allgemeines Styling für die Seite */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-/* Navigation Styling */
-nav {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-nav a:hover {
-  background-color: #575757;
-}
-
-/* Styling für den "Readings"-Bereich */
+/* Styling für die Readings-Seite */
 .readings-page {
-  max-width: 1200px;
-  margin: 20px auto;
+  background-color: var(--bg-color);
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .readings-container {
+  background-color: white;
   padding: 20px;
-  background-color: #fafafa;
   border-radius: 8px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 .reading-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -455,10 +157,10 @@ nav a:hover {
 .reading {
   padding: 15px;
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--divider-color);
 }
 
 .reading strong {
@@ -470,6 +172,7 @@ nav a:hover {
 .reading-authors {
   font-style: italic;
   margin-bottom: 10px;
+  color: #555;
 }
 
 .reading p {
@@ -477,7 +180,7 @@ nav a:hover {
 }
 
 .reading a {
-  color: #007BFF;
+  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -485,9 +188,34 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Styling für den Titel der Seite */
-h2 {
+/* Footer */
+footer {
   text-align: center;
-  color: #333;
-  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--nav-bg);
+  color: var(--nav-link-color);
+  font-size: 0.8em;
+  margin-top: 20px;
+}
+
+footer a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--highlight-color);
+}
+
+/* Responsives Design */
+@media (max-width: 600px) {
+  .content h2,
+  .readings-container h2 {
+    font-size: 1.5em;
+  }
+
+  .readings-container,
+  .talks-page .talks-container {
+    padding: 15px;
+  }
 }

@@ -405,50 +405,89 @@ h2 {
   color: #666;
 }
 
-/* Stile speziell für die Readings-Seite */
-.readings-page .reading-list {
-    list-style: none; /* Keine Aufzählungszeichen */
-    padding: 0; /* Kein zusätzlicher Innenabstand */
-    margin: 0; /* Kein zusätzlicher Außenabstand */
+/* Allgemeines Styling für die Seite */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
-.readings-page .reading {
-    margin-bottom: 15px; /* Abstand zwischen den Einträgen */
-    padding: 10px; /* Innenabstand */
-    border-bottom: 1px solid var(--divider-color); /* Trennung der Einträge */
+/* Navigation Styling */
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
 }
 
-.readings-page .reading:last-child {
-    border-bottom: none; /* Kein unterer Rand beim letzten Eintrag */
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.readings-page .reading-title {
-    font-weight: bold;
-    font-size: 1em;
-    color: var(--text-color);
-    margin: 0;
-    display: block; /* Block-Darstellung für die Titel */
+nav a:hover {
+  background-color: #575757;
 }
 
-.readings-page .reading-title a {
-    color: var(--link-color); /* Farbe der Links */
-    text-decoration: none; /* Standard-Dekoration entfernen */
+/* Styling für den "Readings"-Bereich */
+.readings-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.readings-page .reading-title a:hover {
-    color: var(--highlight-color); /* Hover-Farbe */
-    text-decoration: underline; /* Unterstreichung bei Hover */
+.readings-container {
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
 }
 
-.readings-page .reading-authors {
-    font-style: italic;
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 5px;
+.reading-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.readings-page .reading-details {
-    margin-top: 5px;
-    font-size: 0.85em;
-    color: #666;
+.reading {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reading strong {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.reading-authors {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.reading p {
+  margin: 5px 0;
+}
+
+.reading a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.reading a:hover {
+  text-decoration: underline;
+}
+
+/* Styling für den Titel der Seite */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
 }

@@ -337,8 +337,8 @@ nav a:focus {
 
 /* Titel der Lesung */
 .reading-title {
-  font-weight: bold; /* Fett für Titel */
-  font-size: 18px; /* Größere Schriftgröße */
+  font-weight: bold !important; /* Fett für Titel */
+  font-size: 18px !important; /* Größere Schriftgröße */
   margin-bottom: 5px; /* Abstand nach unten */
   color: #000; /* Optional: Textfarbe für mehr Kontrast */
   display: block; /* Stellt sicher, dass es sich wie ein Blockelement verhält */

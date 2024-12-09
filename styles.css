@@ -27,6 +27,7 @@ nav {
   background-color: var(--nav-bg);
   color: var(--text-color);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
 }
@@ -38,6 +39,7 @@ nav a {
   text-decoration: none;
   margin: 5px 10px;
   font-size: 14px;
+  font-weight: 200;
 }
 
 nav a:hover,
@@ -364,7 +366,21 @@ nav a:focus {
   font-size: 14px; /* Etwas kleinere Schriftgröße */
   color: #666; /* Grauer Text für Details */
 }
-
+/* Medienabfrage für größere Bildschirme */
+@media screen and (min-width: 768px) {
+  .reading-title {
+    font-size: 20px; /* Größere Schrift für Desktops */
+  }
+  
+  .reading-authors,
+  .reading-event {
+    font-size: 18px; /* Etwas größere Schrift auf Desktops */
+  }
+  
+  .reading-details {
+    font-size: 16px; /* Etwas größere Schrift auf Desktops */
+  }
+}
   
 /* Veröffentlichungssektion */
 .recent-publications-section {

@@ -361,6 +361,34 @@ nav a:focus {
   font-style: italic; /* Lässt den Text kursiv erscheinen */
   color: #333; /* Optional: eine andere Textfarbe */
 }
+/* Titel der Lesung */
+.reading-title {
+  font-weight: 700; /* Fett für Titel */
+  font-size: 18px; /* Größere Schriftgröße */
+  margin-bottom: 5px; /* Abstand nach unten */
+}
+
+/* Autorenliste */
+.reading-authors {
+  font-weight: 400; /* Normales Gewicht */
+  font-size: 16px; /* Schriftgröße */
+  margin-bottom: 5px; /* Abstand nach unten */
+}
+
+/* Veranstaltungstitel */
+.reading-event {
+  font-weight: 500; /* Mittleres Gewicht */
+  font-size: 16px; /* Schriftgröße */
+  margin-bottom: 5px; /* Abstand nach unten */
+  font-style: italic; /* Kursiv für den Veranstaltungstitel */
+}
+
+/* Veranstaltungsdetails (Ort und Datum) */
+.reading-details {
+  font-weight: 400; /* Normales Gewicht */
+  font-size: 14px; /* Etwas kleinere Schriftgröße */
+  color: #666; /* Grauer Text für Details */
+}
 
   
 /* Veröffentlichungssektion */

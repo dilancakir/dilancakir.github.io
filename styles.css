@@ -301,8 +301,7 @@ nav a:focus {
   display: none;
 }
 
-/* Responsives Design */
-@media (max-width: 600px) {
+ {
   .content h1 {
     font-size: 1.8em;
   }

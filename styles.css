@@ -340,31 +340,31 @@ nav a:focus {
   font-weight: bold !important; /* Fett für Titel */
   font-size: 18px !important; /* Größere Schriftgröße */
   margin-bottom: 5px; /* Abstand nach unten */
-  color: #000; /* Optional: Textfarbe für mehr Kontrast */
+  color: #000 !important; /* Optional: Textfarbe für mehr Kontrast */
   display: block; /* Stellt sicher, dass es sich wie ein Blockelement verhält */
 }
 
 /* Autorenliste */
 .reading-authors {
-  font-weight: 400; /* Normales Gewicht */
-  font-size: 16px; /* Schriftgröße */
-  margin-bottom: 5px; /* Abstand nach unten */
-  font-style: italic; /* Kursiv */
+  font-weight: 400 !important; /* Normales Gewicht */
+  font-size: 16px !important; /* Schriftgröße */
+  margin-bottom: 5px !important; /* Abstand nach unten */
+  font-style: italic !important; /* Kursiv */
 }
 
 /* Veranstaltungstitel */
 .reading-event {
-  font-weight: 500; /* Mittleres Gewicht */
-  font-size: 16px; /* Schriftgröße */
-  margin-bottom: 5px; /* Abstand nach unten */
-  font-style: italic; /* Kursiv */
+  font-weight: 500 !important; /* Mittleres Gewicht */
+  font-size: 16px !important; /* Schriftgröße */
+  margin-bottom: 5px !important; /* Abstand nach unten */
+  font-style: italic !important; /* Kursiv */
 }
 
 /* Veranstaltungsdetails (Ort und Datum) */
 .reading-details {
-  font-weight: 400; /* Normales Gewicht */
-  font-size: 14px; /* Etwas kleinere Schriftgröße */
-  color: #666; /* Grauer Text für Details */
+  font-weight: 400 !important; /* Normales Gewicht */
+  font-size: 14px !important; /* Etwas kleinere Schriftgröße */
+  color: #666 !important; /* Grauer Text für Details */
 }
 /* Medienabfrage für größere Bildschirme */
 @media screen and (min-width: 768px) {

@@ -456,4 +456,24 @@ nav a:focus {
     padding: 60px 20px;
   }
 }
+/* Footer Styling */
+footer {
+  margin-top: auto; /* Stellt sicher, dass der Footer immer unten bleibt */
+  padding: 20px; /* Fügt etwas Abstand im Footer hinzu */
+  background-color: var(--bg-color); /* Verwendet die Hintergrundfarbe von oben */
+  color: var(--text-color); /* Setzt die Textfarbe aus den oben definierten Variablen */
+  text-align: center; /* Zentriert den Text */
+  width: 100%; /* Stellt sicher, dass der Footer die gesamte Breite einnimmt */
+  box-sizing: border-box; /* Verhindert, dass das Padding die Gesamtbreite beeinflusst */
+  font-size: 14px; /* Passt die Schriftgröße an */
+}
+
+footer a {
+  color: var(--link-color); /* Setzt die Linkfarbe auf die definierte Linkfarbe */
+  text-decoration: none; /* Entfernt die Unterstreichung */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Fügt eine Unterstreichung hinzu, wenn der Link gehovt wird */
+}
 

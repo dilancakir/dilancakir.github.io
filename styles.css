@@ -366,6 +366,10 @@ nav a:focus {
   font-size: 14px !important; /* Etwas kleinere Schriftgröße */
   color: #666 !important; /* Grauer Text für Details */
 }
+  .reading div {
+  display: block;
+}
+
 
 }
   

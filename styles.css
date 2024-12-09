@@ -403,24 +403,6 @@ nav a:focus {
   font-size: 14px; /* Schriftgröße */
 }
 
-/* Responsive Anpassungen */
-@media (max-width: 1200px) {
-  .publication {
-    width: calc(33.33% - 20px); /* Drei Elemente pro Zeile */
-  }
-}
-
-@media (max-width: 768px) {
-  .publication {
-    width: calc(50% - 20px); /* Zwei Elemente pro Zeile */
-  }
-}
-
-@media (max-width: 480px) {
-  .publication {
-    width: 100%; /* Ein Element pro Zeile */
-  }
-}
   .publication a {
   display: block; /* Ermöglicht es, dass der Link das Bild umschließt */
   text-decoration: none; /* Entfernt Standard-Textdekoration */

@@ -366,20 +366,7 @@ nav a:focus {
   font-size: 14px !important; /* Etwas kleinere Schriftgröße */
   color: #666 !important; /* Grauer Text für Details */
 }
-/* Medienabfrage für größere Bildschirme */
-@media screen and (min-width: 768px) {
-  .reading-title {
-    font-size: 20px; /* Größere Schrift für Desktops */
-  }
-  
-  .reading-authors,
-  .reading-event {
-    font-size: 18px; /* Etwas größere Schrift auf Desktops */
-  }
-  
-  .reading-details {
-    font-size: 16px; /* Etwas größere Schrift auf Desktops */
-  }
+
 }
   
 /* Veröffentlichungssektion */

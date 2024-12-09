@@ -27,7 +27,6 @@ nav {
   background-color: var(--nav-bg);
   color: var(--text-color);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
 }
@@ -39,7 +38,6 @@ nav a {
   text-decoration: none;
   margin: 5px 10px;
   font-size: 14px;
-  font-weight: 200;
 }
 
 nav a:hover,
@@ -435,5 +433,20 @@ nav a:focus {
 
 .publication img:hover {
   transform: scale(1.05); /* Vergrößert das Bild leicht bei Hover */
+}
+  
+/* Desktop-spezifische Styles */
+@media (min-width: 1024px) {
+  .content h1 {
+    font-size: 2.5em;
+  }
+
+  .cv-section h2 {
+    font-size: 2em;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
 }
 

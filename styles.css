@@ -335,37 +335,13 @@ nav a:focus {
   padding: 0; /* Entfernt den inneren Abstand des Listenelements */
 }
 
-/* Titel fett anzeigen */
-.reading strong {
-  display: block; /* Macht den Titel als Blockelement sichtbar */
-  font-weight: bold; /* Lässt den Titel fett erscheinen */
-  margin-bottom: 5px; /* Optional: ein kleiner Abstand nach dem Titel */
-}
-
-/* Autorenliste kompakt anzeigen */
-.reading .reading-authors {
-  font-style: italic; /* Setzt die Autorenliste kursiv */
-  margin-bottom: 5px; /* Optional: ein kleiner Abstand nach den Autoren */
-  color: #555; /* Optional: leicht gedämpfte Farbe */
-}
-
-/* Veranstaltungsdetails ohne Absatz */
-.reading p {
-  display: inline; /* Zeigt den Text inline an */
-  margin: 0; /* Entfernt den äußeren Abstand */
-  padding: 0; /* Entfernt den inneren Abstand */
-}
-
-/* Veranstaltungsort und Datum kursiv */
-.reading p i {
-  font-style: italic; /* Lässt den Text kursiv erscheinen */
-  color: #333; /* Optional: eine andere Textfarbe */
-}
 /* Titel der Lesung */
 .reading-title {
-  font-weight: 700; /* Fett für Titel */
+  font-weight: bold; /* Fett für Titel */
   font-size: 18px; /* Größere Schriftgröße */
   margin-bottom: 5px; /* Abstand nach unten */
+  color: #000; /* Optional: Textfarbe für mehr Kontrast */
+  display: block; /* Stellt sicher, dass es sich wie ein Blockelement verhält */
 }
 
 /* Autorenliste */
@@ -373,6 +349,7 @@ nav a:focus {
   font-weight: 400; /* Normales Gewicht */
   font-size: 16px; /* Schriftgröße */
   margin-bottom: 5px; /* Abstand nach unten */
+  font-style: italic; /* Kursiv */
 }
 
 /* Veranstaltungstitel */
@@ -380,7 +357,7 @@ nav a:focus {
   font-weight: 500; /* Mittleres Gewicht */
   font-size: 16px; /* Schriftgröße */
   margin-bottom: 5px; /* Abstand nach unten */
-  font-style: italic; /* Kursiv für den Veranstaltungstitel */
+  font-style: italic; /* Kursiv */
 }
 
 /* Veranstaltungsdetails (Ort und Datum) */

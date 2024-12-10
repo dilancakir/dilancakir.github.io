@@ -52,7 +52,7 @@ nav {
   top: 0; /* Oben am Bildschirm */
   width: 100%; /* Nimmt die gesamte Breite des Bildschirms ein */
   z-index: 1000; /* Stellt sicher, dass die Navigation über anderen Elementen bleibt */
-  box-shadow: 0 2px 4px var(--shadow-color); /* Optional: Schatteneffekt */
+  /*box-shadow: 0 2px 4px var(--shadow-color); /* Optional: Schatteneffekt */
 }
 body {
   padding-top: 60px; /* Beispielhöhe der Navigation */

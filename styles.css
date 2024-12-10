@@ -221,6 +221,32 @@ nav a:focus {
   color: #888;
   font-size: 14px;
 }
+/* Spezifische Stile für readings */
+.reading-title {
+  font-weight: bold; /* Titel fett */
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.reading-authors {
+  font-style: italic; /* Namen kursiv */
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.reading-event {
+  font-size: 16px; /* Event normal */
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.reading-details {
+  font-size: 14px; /* Datum kleiner und grau */
+  color: #888;
+  margin-top: 5px;
+}
+
 
 /* CV-Bereich */
 .cv-section {

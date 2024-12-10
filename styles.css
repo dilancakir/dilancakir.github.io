@@ -235,7 +235,7 @@ nav a:focus {
 /* Spezifische Stile für readings */
 .reading-title {
   font-weight: bold; /* Titel fett */
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 

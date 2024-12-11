@@ -111,6 +111,7 @@ body {
   color: white;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: bold;
 }
 
 .social-links a:hover {

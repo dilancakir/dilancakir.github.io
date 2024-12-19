@@ -414,3 +414,12 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+.small-image {
+  width: 150px; /* Passe die Breite an die Größe der Buchcover an */
+  height: auto; /* Hält die Proportionen des Bildes */
+  display: block;
+  margin: 0 auto 20px; /* Zentriert das Bild und gibt etwas Abstand nach unten */
+  border-radius: 10px; /* Rundet die Ecken ab */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Gibt einen leichten Schatten für einen schönen Effekt */
+}
+

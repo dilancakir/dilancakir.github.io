@@ -419,7 +419,7 @@ footer a:hover {
   height: 150px; /* Höhe des Kreises (muss gleich der Breite sein) */
   display: block;
   margin: 0 auto 20px; /* Zentriert das Bild und gibt Abstand nach unten */
-  border-radius: 50%; /* Macht das Bild rund */
+  border-radius: 0%; /* Macht das Bild rund */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Beibehaltung des Schattens */
   object-fit: cover; /* Passt das Bild so an, dass es den Kreis ausfüllt */
   animation: spin 10s linear infinite; /* Fügt eine Dreh-Animation hinzu */

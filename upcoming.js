@@ -45,7 +45,7 @@ async function loadEvents() {
         const items = doc.querySelectorAll('.talk');
         items.forEach(item => {
           const dateText = item.querySelector('.talk-date')?.textContent;
-          const match = dateText?.match(/(\d{1,2})\s*[-–]\s*(\d{1,2}) (\w+) (\d{4})/i);
+          const match = dateText?.match(/(\d{1,2})(?:\s*[-–]\s*(\d{1,2}))? (\w+) (\d{4})/i);
           if (match) {
             const [ , startDay, endDay, month, year ] = match;
             const date = new Date(`${month} ${startDay}, ${year}`);

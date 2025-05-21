@@ -477,6 +477,7 @@ footer a:hover {
   -webkit-overflow-scrolling: touch; 
   scrollbar-width: none;
 
+
 .carousel-track::-webkit-scrollbar
   display: none; 
 }

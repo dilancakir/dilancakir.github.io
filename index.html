@@ -163,15 +163,14 @@
   const nextButton = document.querySelector('.carousel-button.next');
   const prevButton = document.querySelector('.carousel-button.prev');
 
-  let scrollAmount = 0;
-  const scrollStep = 220 * 4; // 4 Veröffentlichungen à ~220px
+  const scrollAmount = 300; // in Pixeln
 
   nextButton.addEventListener('click', () => {
-    track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
 
   prevButton.addEventListener('click', () => {
-    track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   });
 </script>
 </div>

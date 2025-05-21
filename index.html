@@ -45,10 +45,14 @@
         research interests: German literature (18th - 21st century), activism and literature, theater studies, game studies and literature, digital literature, digital humanities (computational literary studies)
       </p>
     </div>
-
+    
     <div class="recent-publications-section">
-        <h2>Recent Publications</h2>
-  <div class="recent-publications">
+  <h2>Recent Publications</h2>
+
+  <div class="carousel-container">
+    <button class="carousel-button prev">&#10094;</button>
+    
+    <div class="carousel-track">
     <!-- Publication 1 -->
     <div class="publication">
       <a href="https://doi.org/10.1515/9783111334059" target="_blank">
@@ -134,11 +138,16 @@
       </a>
     </div>
   </div>
+  
+
+  <button class="carousel-button next">&#10095;</button>
+  </div>
+
   <div class="upcoming-events">
     <h2>Upcoming Events</h2>
     <div id="upcoming-grid" class="event-grid"></div>
   </div>
-  
+
   <script src="upcoming.js"></script>
   
 </div>
@@ -148,5 +157,24 @@
       Dîlan Canan Çakir <a href="mailto:dilan.cakir@fu-berlin.de">contact</a>
       <p>Last updated: May 20, 2025</p>
     </footer>
+
+    <script>
+  const track = document.querySelector('.carousel-track');
+  const nextButton = document.querySelector('.carousel-button.next');
+  const prevButton = document.querySelector('.carousel-button.prev');
+
+  let scrollAmount = 0;
+  const scrollStep = 220 * 4; // 4 Veröffentlichungen à ~220px
+
+  nextButton.addEventListener('click', () => {
+    track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+  });
+
+  prevButton.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+  });
+</script>
+</div>
+
   </body>
 </html>

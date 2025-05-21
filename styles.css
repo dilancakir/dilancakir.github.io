@@ -544,4 +544,10 @@ html, body {
     width: 70vw;
     max-width: 250px;
     scroll-snap-align: start;
+  }
+
+  .carousel-button.next {
+    right: 1rem;
+  }
+
 }

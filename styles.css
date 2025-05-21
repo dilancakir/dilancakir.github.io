@@ -518,3 +518,10 @@ footer a:hover {
 .main-content-wrapper {
   display: block; /
 }
+
+@media (max-width: 600px) {
+  .publication {
+    width: calc(50% - 20px);
+    max-width: none;
+  }
+}

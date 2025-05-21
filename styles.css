@@ -521,8 +521,17 @@ footer a:hover {
 }
 
 @media (max-width: 600px) {
+  .carousel-container {
+    padding: 1rem 0.5rem;
+    overflow-x: hidden;
+  }
+
+  .carousel-track {
+    gap: 0.5rem;
+  }
+
   .publication {
-    width: calc(50% - 20px);
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
   }
 }

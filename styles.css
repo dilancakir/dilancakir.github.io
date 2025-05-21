@@ -457,6 +457,10 @@ footer a:hover {
 }
 
 /* Karussell */
+html, body {
+  overflow-x: hidden;
+}
+
 .carousel-container {
   width: 100%;
   max-width: 880px;
@@ -466,6 +470,7 @@ footer a:hover {
   display: flex;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .carousel-track {
@@ -476,6 +481,8 @@ footer a:hover {
   padding: 1rem 0;
   -webkit-overflow-scrolling: touch; 
   scrollbar-width: none;
+  max-width: 100vw;
+  box-sizing: border-box;
 
 
 .carousel-track::-webkit-scrollbar
@@ -493,6 +500,7 @@ footer a:hover {
   cursor: pointer;
   padding: 0.5rem;
   transition: background-color 0.3s;
+  max-width: 10vw;
 }
 
 .carousel-button.prev {
@@ -517,7 +525,7 @@ footer a:hover {
 
 
 .main-content-wrapper {
-  display: block; /
+  display: block;
 }
 
 @media (max-width: 600px) {
@@ -531,7 +539,8 @@ footer a:hover {
   }
 
   .publication {
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 auto;
+    width: 80vw;
+    max-width: 300px;
   }
 }

@@ -136,6 +136,16 @@ nav a:focus {
   border: 3px solid rgba(255,255,255,0.7);
 }
 
+.hero .hero-inner img.profile-photo {
+  width: 102px !important;
+  height: 102px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+  border: 3px solid rgba(255,255,255,0.7);
+}
+
 
 .hero-text {
   color: white;

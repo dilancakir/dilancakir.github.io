@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Talks Map</title>
+  <!-- Leaflet + MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#11131a; --muted:#aeb4c0; --text:#e8ecf1; --accent:#98e0ff;
+      --ok:#7ae582; --warn:#ffda6a;
+    }
+    html,body{height:100%;margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text)}
+    .layout{display:grid; grid-template-columns: 360px 1fr; grid-template-rows: 56px 1fr; height:100%}
+    header{grid-column:1/3; display:flex; align-items:center; gap:.75rem; padding:0 .75rem; border-bottom:1px solid #1e2230; background:linear-gradient(180deg,#0f1420, #0b0c10)}
+    header h1{font-size:1rem; font-weight:600; letter-spacing:.2px; margin:0}
+    header .meta{opacity:.7; font-size:.9rem}
+    aside{grid-column:1; grid-row:2; border-right:1px solid #1e2230; background:var(--panel); overflow:auto}
+    main{grid-column:2; grid-row:2; position:relative}
+    #map{position:absolute; inset:0}
+
+    .controls{padding:12px; position:sticky; top:0; background:linear-gradient(180deg, rgba(17,19,26,.98), rgba(17,19,26,.92)); border-bottom:1px solid #1e2230; backdrop-filter: blur(6px); z-index:10}
+    .controls .row{display:flex; gap:8px; margin-bottom:8px}
+    .controls input[type="text"]{flex:1; padding:10px 12px; border-radius:10px; border:1px solid #253048; background:#0e1320; color:var(--text)}
+    .controls .chips{display:flex; gap:6px; flex-wrap:wrap; margin-top:6px}
+    .chip{font-size:.8rem; padding:4px 8px; border-radius:999px; border:1px solid #27334e; color:var(--muted)}
+
+    .years{display:flex; align-items:center; gap:8px; font-size:.9rem; color:var(--muted)}
+    .years input{width:50%}
+    .toggle{display:flex; align-items:center; gap:6px; font-size:.9rem; color:var(--muted); margin-top:6px}
+
+    .list{padding:8px 12px 80px}
+    .item{padding:10px 12px; border:1px solid #1f2a40; border-radius:12px; margin:8px 0; background:#0d1220; cursor:pointer}
+    .item:hover{border-color:#2d3a57}
+    .title{font-weight:600; font-size:.95rem}
+    .sub{color:var(--muted); font-size:.86rem; margin-top:2px}
+    .date{color:#c6d4ff; font-size:.85rem; margin-top:4px}
+    .future{border-color:#304c34; box-shadow:0 0 0 1px rgba(122,229,130,.15) inset}
+
+    /* Map marker styling via DivIcon */
+    .dot{width:14px; height:14px; border-radius:50%; border:2px solid white; box-shadow:0 2px 8px rgba(0,0,0,.35)}
+    .dot.past{background:#4da3ff}
+    .dot.future{background:#7ae582}
+
+    .toolbar{position:absolute; right:10px; top:10px; display:flex; gap:8px; z-index:500}
+    .btn{border:1px solid #2a3650; background:#0f1422; color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:.9rem}
+    .btn:hover{border-color:#38507d}
+
+    .leaflet-popup-content{font:14px/1.4 system-ui, sans-serif}
+    .leaflet-container{background:#0a0d14}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <h1>Talks, Presentations, Readings, Moderations – Karte</h1>
+      <div class="meta">OpenStreetMap + Leaflet · Filter nach Jahr & Suche · Klick = Details</div>
+    </header>
+
+    <aside>
+      <div class="controls">
+        <div class="row">
+          <input id="q" type="text" placeholder="Suche (Titel, Ort, Details)…"/>
+        </div>
+        <div class="years">
+          <span id="yminLabel">2018</span>
+          <input id="ymin" type="range" min="2018" max="2026" value="2018"/>
+          <input id="ymax" type="range" min="2018" max="2026" value="2026"/>
+          <span id="ymaxLabel">2026</span>
+        </div>
+        <label class="toggle"><input id="showFuture" type="checkbox" checked> Zukünftige Termine anzeigen</label>
+        <div class="chips"><span class="chip">Cluster-Zoom per Klick</span><span class="chip">Liste ↔ Karte verlinkt</span><span class="chip">GeoJSON-Export</span></div>
+      </div>
+      <div id="list" class="list"></div>
+    </aside>
+
+    <main>
+      <div class="toolbar">
+        <button id="fit" class="btn">Alle anzeigen</button>
+        <button id="export" class="btn">GeoJSON exportieren</button>
+      </div>
+      <div id="map"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script>
+  // ---- 1) Daten -------------------------------------------------------------
+  // Minimalstruktur: {title, details, authors, date: 'YYYY-MM-DD', city, country, lat, lon, url}
+  const TALKS = [
+    {title:"Metadaten lesbar machen: Genre, Inferenzstatistik und Replizierbarkeit in der 'Digitalen Einakter-Datenbank'", authors:"mit Viktor J. Illmer", details:"Ringvorlesung 'Digital Humanities im Fokus'", date:"2025-12-15", city:"Rostock", country:"DE", lat:54.0924, lon:12.0991},
+    {title:"Einakter als Daten: Statistik und digitale Erschließung einer vergessenen Gattung (1740–1850)", authors:"mit Viktor J. Illmer", details:"Gastvortrag, Vorlesung 'Vergessene Texte von 1800 bis heute'", date:"2025-11-06", city:"Berlin (HU)", country:"DE", lat:52.5200, lon:13.4050},
+    {title:"[Roundtable] Was die KI (nicht) liest – der literarische Kanon zwischen Algorithmus und Vielfalt", details:"Aktionstage #BreiterKanon", date:"2025-09-08", city:"Berlin (SBB Unter den Linden)", country:"DE", url:"https://blog.sbb.berlin/termin/breiterkanon-8-9-25/", lat:52.5194, lon:13.3956},
+    {title:"Hebbels Einakter 'Ein Trauerspiel in Sicilien'", details:"Jahrestagung der Hebbelgesellschaft", date:"2025-05-30", city:"Wesselburen", country:"DE", lat:54.2115, lon:8.9210},
+    {title:"Literatur in Games und Games als literarisches Phänomen", details:"Gastvortrag – Seminar 'Kafka im digitalen Spiel'", date:"2025-05-26", city:"Leipzig", country:"DE", lat:51.3397, lon:12.3731},
+    {title:"[Roundtable] Aktivistische Aktionen von Autor*innen", details:"AK Politische Ästhetiken – Literaturforum im Brechthaus", date:"2025-05-23", city:"Berlin", country:"DE", lat:52.5200, lon:13.4050},
+    {title:"Game Studies und Digital Humanities", details:"Gastvorlesung – Einführung in die DH", date:"2025-01-27", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Univariate Statistical Analysis of a Non-Canonical Literary Genre", authors:"mit V. Illmer, F. Fischer, L. Welz, C. Milling", details:"CHR 2024", date:"2024-12-04", city:"Aarhus", country:"DK", lat:56.1629, lon:10.2039},
+    {title:"Universities and the Future – Roundtable", details:"DAAD Doctoral Conference", date:"2024-11-26", city:"Cambridge", country:"UK", lat:52.2053, lon:0.1218},
+    {title:"Einakter entdecken. Die Kunst des kurzen Dramas", details:"Hebbel-Gesellschaft", date:"2024-11-07", city:"Wesselburen", country:"DE", lat:54.2115, lon:8.9210},
+    {title:"Carmen Nova – TEI Encoding & Analysis", authors:"mit V. Illmer u. a.", details:"TEI 2024", date:"2024-10-11", city:"Buenos Aires", country:"AR", lat:-34.6037, lon:-58.3816},
+    {title:"Kurdishness in Contemporary German Literature", details:"GSA 2024 Seminar", date:"2024-09-26", city:"Atlanta", country:"US", lat:33.7490, lon:-84.3880},
+    {title:"DraCor & Einakter-Datenbank – Digitale Gattungshermeneutik", authors:"mit V. Illmer, F. Fischer", details:"LMU München", date:"2024-09-12", city:"München", country:"DE", lat:48.1351, lon:11.5820},
+    {title:"Wertung und Literaturpreise – Nobelpreiseffekt?", details:"Gastvortrag – Universität Stuttgart", date:"2024-06-26", city:"Stuttgart", country:"DE", lat:48.7758, lon:9.1829},
+    {title:"Games als literarisches Phänomen", details:"Gastvortrag – Uni Leipzig", date:"2024-06-03", city:"Leipzig", country:"DE", lat:51.3397, lon:12.3731},
+    {title:"Translating 'Ulysses' – Reading & Q&A", details:"Literaturhaus Berlin", date:"2024-06-01", city:"Berlin", country:"DE", lat:52.5200, lon:13.4050},
+    {title:"Publikum & Einakter (18.–frühes 19. Jh.)", details:"#BreiterKanon – SBB", date:"2024-03-21", city:"Berlin", country:"DE", lat:52.5194, lon:13.3956},
+    {title:"One’s own body as a weapon", details:"ACLA 2024 – Activist Writing/Reading", date:"2024-03-15", city:"Montréal", country:"CA", lat:45.5019, lon:-73.5674},
+    {title:"Aktivismus und Literaturwissenschaft", authors:"mit Anna Jurgan", details:"Szondi Woche – FU Berlin", date:"2024-02-01", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Gespräch über pornographische Einakter", authors:"mit Frank Fischer", details:"Seminar Der deutschsprachige Einakter – FU", date:"2024-01-22", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Berliner Einakter um 1800", details:"Bühnen im Umbruch – FU Berlin", date:"2024-01-18", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Aktivismus und Literatur", details:"Gastvortrag – Uni Tübingen", date:"2024-01-09", city:"Tübingen", country:"DE", lat:48.5216, lon:9.0576},
+    {title:"Kunst und Aktivismus", details:"Gastvortrag – FU Berlin", date:"2023-12-13", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Ego-Shooter in literarischer Mission?", details:"Ringvorlesung 'Remediated!' – Uni Freiburg", date:"2023-11-08", city:"Freiburg", country:"DE", lat:47.9990, lon:7.8421},
+    {title:"Franz Kafka and Games", details:"GSA 47 – Montréal", date:"2023-10-07", city:"Montréal", country:"CA", lat:45.5019, lon:-73.5674},
+    {title:"Born-digital estate (Kittler)", authors:"mit Alex Holz", details:"University of Hamburg", date:"2023-09-27", city:"Hamburg", country:"DE", lat:53.5511, lon:9.9937},
+    {title:"Lost without emulation?", authors:"mit Fritsch, Höltgen, Holz, Hagener", details:"GfM – Uni Bonn", date:"2023-09-27", city:"Bonn", country:"DE", lat:50.7374, lon:7.0982},
+    {title:"Digital Literature – Reading mit Berit Glanz & Lukas Diestel", authors:"mit Rebecca Sturm", details:"Summer School – DLA Marbach", date:"2023-08-03", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Podcast: Games & Literatur", authors:"mit Rica Burow", details:"blog.dla-marbach.de – DLA Marbach", date:"2023-07-23", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Archiv und Identität – Erfahrungen am DLA Marbach", details:"Workshop der Jungen Akademie", date:"2023-07-14", city:"Freiburg", country:"DE", lat:47.9990, lon:7.8421},
+    {title:"Lesung mit Aslı Erdoğan & Emine Sevgi Özdamar", authors:"mit Stephanie Obermeier", details:"Benefiz – DLA Marbach", date:"2023-04-21", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Games im DLA Marbach – wie & warum archivieren", authors:"mit Alex Holz", details:"Digital Makerspace – KSW Weimar", date:"2023-03-09", city:"Weimar", country:"DE", lat:50.9795, lon:11.3235},
+    {title:"Born-digital Bestände von Gamesautor*innen", details:"MWW Endterm-Tagung – Weimar", date:"2023-02-16", city:"Weimar", country:"DE", lat:50.9795, lon:11.3235},
+    {title:"Games im DLA Marbach", details:"Symposion – München", date:"2022-12-13", city:"München", country:"DE", lat:48.1351, lon:11.5820},
+    {title:"Asyl im Archiv? Kurdische Diaspora & Gender", details:"After Hours – Uni Greifswald", date:"2022-12-05", city:"Greifswald", country:"DE", lat:54.0931, lon:13.3879},
+    {title:"Einsamkeitsreflexionen – Gespräch mit Fatma Aydemir ('Dschinns')", authors:"mit Felix Lempp", details:"Tagung der Jungen Deutschen Schillergesellschaft", date:"2023-11-03", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Aktivismus im DLA – kurdische Literatur in der Diaspora", details:"ZfL Berlin", date:"2022-10-27", city:"Berlin", country:"DE", lat:52.5200, lon:13.4050},
+    {title:"Kurdische Diaspora und Literatur – Archivasyl", details:"DLA Marbach", date:"2022-10-25", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Hilde Domin and the German Literature Archive Marbach", details:"DAAD", date:"2022-10-13", city:"Berlin", country:"DE", lat:52.5200, lon:13.4050},
+    {title:"Games aus Europa – Wie erzählen Computerspiele?", authors:"mit Falkenhagen, Möring", details:"LIT:potsdam", date:"2022-06-27", city:"Potsdam", country:"DE", lat:52.3906, lon:13.0645},
+    {title:"Was heißt & zu welchem Ende schreibt man deutsche Games-Geschichte", authors:"mit Blankenheim, Forster, Lange, Schiffer", details:"PAtCH’D – Uni Wuppertal", date:"2022-06-04", city:"Wuppertal", country:"DE", lat:51.2562, lon:7.1508},
+    {title:"Can Dündar & Cem Özdemir – Writing and Reporting from Exile", details:"DLA Marbach", date:"2022-05-27", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Kanonkritik & quantitative DLW – Einakter", details:"StartScience – Uni Stuttgart", date:"2022-04-29", city:"Stuttgart", country:"DE", lat:48.7758, lon:9.1829},
+    {title:"Dramatische Metadaten – Einakter-Datenbank", authors:"mit Frank Fischer", details:"DHd2022 – Uni Potsdam", date:"2022-03-10", city:"Potsdam", country:"DE", lat:52.3906, lon:13.0645},
+    {title:"Mit den wenigsten Mitteln die größten Effekte", authors:"mit Frank Fischer", details:"Kolloquium 'Phänomenologie der DH' – FU Berlin", date:"2022-01-06", city:"Berlin (FU)", country:"DE", lat:52.457, lon:13.297},
+    {title:"Einakter, poetische Ökonomie & digitale Datenbank", details:"IMLR – University of London", date:"2021-11-26", city:"London", country:"UK", lat:51.5074, lon:-0.1278},
+    {title:"Is There a Nobel Effect?", authors:"mit Sandra Richter", details:"German Literature Archive Marbach", date:"2021-09-27", city:"Marbach am Neckar", country:"DE", lat:48.9396, lon:9.2572},
+    {title:"Die Einakter – Deutsches Seminar", details:"Universität Tübingen", date:"2019-01-22", city:"Tübingen", country:"DE", lat:48.5216, lon:9.0576},
+    {title:"Die Einakter im Gotha-Bestand", details:"Herzog-Ernst-Kolloquium", date:"2018-11-01", city:"Gotha", country:"DE", lat:50.9481, lon:10.7017},
+    {title:"Lachen statt Gähnen – Theaterabend im 18. Jh.", details:"DGEJ Jahrestagung", date:"2018-09-22", city:"Paderborn", country:"DE", lat:51.7189, lon:8.7575}
+  ];
+
+  // ---- 2) Karte -------------------------------------------------------------
+  const map = L.map('map', { zoomControl: false }).setView([51.1657, 10.4515], 5);
+  L.control.zoom({ position:'topright' }).addTo(map);
+  const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors'
+  }).addTo(map);
+
+  const cluster = L.markerClusterGroup({ showCoverageOnHover:false, spiderfyOnMaxZoom:true });
+  map.addLayer(cluster);
+
+  // ---- 3) Marker + Popup ----------------------------------------------------
+  const markersById = new Map();
+  function isFuture(d){ return new Date(d) > new Date(); }
+
+  function makeIcon(future){
+    return L.divIcon({ className:'', html:`<div class="dot ${future? 'future':'past'}"></div>`, iconSize:[16,16], iconAnchor:[8,8] });
+  }
+
+  TALKS.forEach((t,i)=>{
+    const future = isFuture(t.date);
+    const m = L.marker([t.lat, t.lon], { icon: makeIcon(future) });
+    const html = `
+      <div style="min-width:220px">
+        <div style="font-weight:600;margin-bottom:4px">${t.title}</div>
+        ${t.authors? `<div style="opacity:.8">${t.authors}</div>`:''}
+        <div style="opacity:.8">${t.details||''}</div>
+        <div style="margin-top:6px;color:${future? '#7ae582':'#c6d4ff'}">${new Date(t.date).toLocaleDateString('de-DE', {year:'numeric',month:'long',day:'numeric'})}</div>
+        <div style="opacity:.9">${t.city}${t.country? ', '+t.country:''}</div>
+        ${t.url? `<div style="margin-top:6px"><a href="${t.url}" target="_blank" rel="noopener">Link</a></div>`:''}
+      </div>`;
+    m.bindPopup(html);
+    m._talkId = i;
+    markersById.set(i, m);
+    cluster.addLayer(m);
+  });
+
+  const bounds = cluster.getBounds(); if(bounds.isValid()) map.fitBounds(bounds.pad(0.1));
+
+  // ---- 4) Sidebar-Liste + Filter -------------------------------------------
+  const listEl = document.getElementById('list');
+  function renderList(items){
+    listEl.innerHTML = items.map((t,i)=>{
+      const future = isFuture(t.date);
+      return `<div class="item ${future? 'future':''}" data-id="${i}">
+        <div class="title">${t.title}</div>
+        <div class="sub">${t.details||''}</div>
+        <div class="sub">${t.city}${t.country? ', '+t.country:''}${t.authors? ' · '+t.authors:''}</div>
+        <div class="date">${new Date(t.date).toLocaleDateString('de-DE')} ${future? '• geplant':''}</div>
+      </div>`
+    }).join('');
+  }
+  renderList(TALKS);
+
+  // Click in list ⇒ open popup
+  listEl.addEventListener('click', (e)=>{
+    const item = e.target.closest('.item'); if(!item) return;
+    const id = +item.dataset.id; const t = TALKS[id]; const m = markersById.get(id);
+    if(m){ map.setView(m.getLatLng(), 9, {animate:true}); setTimeout(()=>m.openPopup(), 250); }
+  });
+
+  // Search + Year filter + Future toggle
+  const qEl = document.getElementById('q');
+  const yminEl = document.getElementById('ymin');
+  const ymaxEl = document.getElementById('ymax');
+  const yminLabel = document.getElementById('yminLabel');
+  const ymaxLabel = document.getElementById('ymaxLabel');
+  const showFutureEl = document.getElementById('showFuture');
+
+  function applyFilters(){
+    const q = qEl.value.trim().toLowerCase();
+    const yMin = +yminEl.value, yMax = +ymaxEl.value;
+    yminLabel.textContent = yMin; ymaxLabel.textContent = yMax;
+
+    cluster.clearLayers();
+    const filtered = TALKS.filter((t,i)=>{
+      const d = new Date(t.date); const y = d.getFullYear();
+      if(y < yMin || y > yMax) return false;
+      const future = isFuture(t.date);
+      if(!showFutureEl.checked && future) return false;
+      if(!q) return true;
+      const hay = `${t.title} ${t.details||''} ${t.authors||''} ${t.city} ${t.country||''}`.toLowerCase();
+      return hay.includes(q);
+    });
+
+    filtered.forEach((t,i)=>{ cluster.addLayer(markersById.get(TALKS.indexOf(t))); });
+    renderList(filtered.map(f=>f));
+
+    // Fit bounds to filtered markers
+    const b = L.latLngBounds([]);
+    filtered.forEach(t=>b.extend([t.lat,t.lon]));
+    if(b.isValid()) map.fitBounds(b.pad(0.15));
+  }
+
+  qEl.addEventListener('input', applyFilters);
+  yminEl.addEventListener('input', ()=>{ if(+yminEl.value > +ymaxEl.value) yminEl.value = ymaxEl.value; applyFilters(); });
+  ymaxEl.addEventListener('input', ()=>{ if(+ymaxEl.value < +yminEl.value) ymaxEl.value = yminEl.value; applyFilters(); });
+  showFutureEl.addEventListener('change', applyFilters);
+
+  // ---- 5) Toolbar actions ---------------------------------------------------
+  document.getElementById('fit').addEventListener('click', ()=>{
+    const b = cluster.getBounds(); if(b.isValid()) map.fitBounds(b.pad(0.1));
+  });
+
+  document.getElementById('export').addEventListener('click', ()=>{
+    const fc = { type:'FeatureCollection', features: TALKS.map(t=>({
+      type:'Feature', properties:{ title:t.title, details:t.details, authors:t.authors, date:t.date, city:t.city, country:t.country, url:t.url||null }, geometry:{ type:'Point', coordinates:[t.lon, t.lat] }
+    })) };
+    const blob = new Blob([JSON.stringify(fc,null,2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = Object.assign(document.createElement('a'), {href:url, download:'talks.geojson'});
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+
+  // Keyboard: Ctrl/Cmd+F focuses search
+  window.addEventListener('keydown', (e)=>{ if((e.ctrlKey||e.metaKey)&& e.key.toLowerCase()==='f'){ e.preventDefault(); qEl.focus(); } });
+  </script>
+</body>
+</html>

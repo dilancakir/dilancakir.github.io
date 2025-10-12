@@ -28,30 +28,234 @@
         <a
           href="https://www.zotero.org/dilanccakir/publications"
           target="_blank"
+          rel="noopener"
           >Zotero</a
         >.
       </p>
 
-      <!-- Ladeicon -->
-      <div id="loader">
-        <div class="spinner"></div>
-      </div>
-
-      <!-- Bibliografie -->
+      <div id="loader"><div class="spinner"></div></div>
       <div id="bibliography"></div>
-      <script
-        src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fzotero-mypublications%2FDilanCCakir&fullnames=1&theme=mila&jsonp=1&nocache=1"
-        onload="hideLoader()"
-      ></script>
     </div>
 
     <script>
-      function hideLoader() {
-        document.getElementById("loader").classList.add("hidden");
+      const USER_ID = 7858710;
+
+      // Reihenfolge der Gruppen
+      const ORDER = [
+        "Books",
+        "Edited Volumes and Issues",
+        "Articles and Chapters",
+        "Blogposts",
+        "Datasets",
+      ];
+
+      const yearOf = (d) => {
+        const m = String(d?.date || "").match(/\b(19|20)\d{2}\b/);
+        return m ? +m[0] : 0;
+      };
+
+      const names = (arr = []) =>
+        arr
+          .map((c) =>
+            c.name
+              ? c.name
+              : [c.lastName, c.firstName].filter(Boolean).join(", ")
+          )
+          .filter(Boolean)
+          .join("; ");
+
+      // Kategorie bestimmen
+      const detectCategory = (it) => {
+        const t = it.data.itemType;
+        const has = (role) =>
+          (it.data.creators || []).some((c) => c.creatorType === role);
+        if (t === "book" && has("author")) return "Books";
+        if (t === "book" && !has("author") && has("editor"))
+          return "Edited Volumes and Issues";
+        if (["journalArticle", "bookSection", "conferencePaper"].includes(t))
+          return "Articles and Chapters";
+        if (t === "dataset") return "Datasets";
+        return "Blogposts";
+      };
+
+      function buildVenue(d) {
+        const place = d.place || d.publisherPlace || d.eventPlace || "";
+        const publisher = d.publisher || "";
+        const vol = d.volume ? ` ${d.volume}` : "";
+        const issue = d.issue ? `(${d.issue})` : "";
+        const pages = d.pages ? `, pp. ${d.pages}` : "";
+
+        if (d.itemType === "journalArticle") {
+          const journal = d.publicationTitle || "";
+          return [journal && `<em>${journal}</em>${vol}${issue}${pages}`]
+            .filter(Boolean)
+            .join("");
+        }
+        if (d.itemType === "bookSection") {
+          const inBook = d.bookTitle ? `In: ${d.bookTitle}` : "";
+          const editors = (d.creators || [])
+            .filter((c) => c.creatorType === "editor")
+            .map((c) =>
+              c.name
+                ? c.name
+                : [c.lastName, c.firstName].filter(Boolean).join(", ")
+            )
+            .join("; ");
+          const edStr = editors ? ` (ed. ${editors})` : "";
+          const pubStr =
+            publisher || place
+              ? ` — ${[publisher, place].filter(Boolean).join(", ")}`
+              : "";
+          return [inBook && `<em>${inBook}</em>${edStr}`, pubStr]
+            .filter(Boolean)
+            .join("");
+        }
+        if (d.itemType === "conferencePaper") {
+          const proc = d.proceedingsTitle || d.conferenceName || "";
+          const where = [publisher, place].filter(Boolean).join(", ");
+          return [proc && `<em>${proc}</em>`, where && ` — ${where}`, pages]
+            .filter(Boolean)
+            .join("");
+        }
+        if (d.itemType === "book") {
+          const where = [publisher, place].filter(Boolean).join(", ");
+          return where ? `<em>${where}</em>` : "";
+        }
+        if (d.itemType === "dataset") {
+          const repo = d.repository || d.archive || "";
+          const where = [repo || publisher || "", place || ""]
+            .filter(Boolean)
+            .join(", ");
+          return where ? `<em>${where}</em>` : "";
+        }
+        const pubTitle = d.publicationTitle || d.websiteTitle || d.series || "";
+        const where = [pubTitle || publisher || "", place || ""]
+          .filter(Boolean)
+          .join(", ");
+        return where ? `<em>${where}</em>` : "";
       }
 
-      // Fallback: Nach 10 Sekunden den Loader sicherheitshalber ausblenden, falls etwas schiefgeht
-      setTimeout(hideLoader, 100);
+      const renderItem = (it) => {
+        const d = it.data;
+        const y = yearOf(d);
+        const allPeople = names(d.creators || []);
+        const title = d.title || "(Untitled)";
+        const link = d.DOI ? "https://doi.org/" + d.DOI : d.url || "";
+        const venue = buildVenue(d);
+        const extra = d.extra ? d.extra.trim() : "";
+        const yearStr = y ? ` · ${y}` : "";
+        const extraStr = extra
+          ? ` · <span class="pub-extra">${extra}</span>`
+          : "";
+
+        return `
+          <li class="pub-item">
+            <span class="pub-title">${title}</span>
+            <span class="pub-meta">
+              ${[allPeople, venue]
+                .filter(Boolean)
+                .join(" — ")}${yearStr}${extraStr}
+              ${
+                link
+                  ? ` · <a class="pub-link" href="${link}" target="_blank" rel="noopener">${
+                      d.DOI ? "DOI" : "Link"
+                    }</a>`
+                  : ""
+              }
+            </span>
+          </li>`;
+      };
+
+      async function loadPublications() {
+        const box = document.getElementById("bibliography");
+        box.innerHTML = "<p>Loading publications…</p>";
+        document.getElementById("loader")?.classList.remove("hidden");
+        try {
+          const url = `https://api.zotero.org/users/${USER_ID}/publications/items?format=json&sort=date&direction=desc&limit=200`;
+          const res = await fetch(url, {
+            headers: { "Zotero-API-Version": "3" },
+          });
+          if (!res.ok) throw new Error("Zotero API: " + res.status);
+          const items = await res.json();
+
+          const groups = {};
+          for (const it of items) (groups[detectCategory(it)] ||= []).push(it);
+          for (const c in groups)
+            groups[c].sort((a, b) => yearOf(b.data) - yearOf(a.data));
+
+          const html =
+            ORDER.filter((c) => groups[c]?.length)
+              .map(
+                (c) => `
+              <section class="pub-section">
+                <h2>${c}</h2>
+                <ol class="pub-list">
+                  ${groups[c].map(renderItem).join("")}
+                </ol>
+              </section>`
+              )
+              .join("") || "<p>No entries.</p>";
+
+          box.innerHTML = html;
+        } catch (e) {
+          console.error(e);
+          box.innerHTML = `<p>Couldn't load publications. See them on <a href="https://www.zotero.org/dilanccakir/publications" target="_blank" rel="noopener">Zotero</a>.</p>`;
+        } finally {
+          document.getElementById("loader")?.classList.add("hidden");
+        }
+      }
+
+      loadPublications();
     </script>
+
+    <style>
+      .pub-section {
+        margin: 2rem 0 2.5rem;
+      }
+      .pub-section h2 {
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      .pub-list {
+        margin-left: 0;
+        padding-left: 0;
+        list-style: none;
+      }
+      .pub-item {
+        margin: 0.6rem 0 0.85rem;
+        line-height: 1.55;
+      }
+      .pub-title {
+        display: block;
+        font-weight: 600;
+      }
+      .pub-meta {
+        display: block;
+        font-size: 0.95em;
+        color: #555;
+        margin-top: 0.12rem;
+      }
+      .pub-extra {
+        font-style: italic;
+        color: #666;
+      }
+      .pub-link {
+        padding: 0.1rem 0.4rem;
+        border: 1px solid currentColor;
+        border-radius: 0.4rem;
+        text-decoration: none;
+        font-size: 0.88em;
+      }
+      .pub-item + .pub-item {
+        padding-top: 0.55rem;
+        border-top: 1px dashed rgba(0, 0, 0, 0.08);
+      }
+      #loader.hidden {
+        display: none;
+      }
+      em {
+        font-style: italic;
+      }
+    </style>
   </body>
 </html>

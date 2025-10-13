@@ -38,7 +38,7 @@
         <input
           id="pub-search"
           type="search"
-          placeholder="Search title, people, venue…"
+          placeholder="Search"
           aria-label="Search publications"
         />
         <select id="pub-year">
@@ -46,7 +46,7 @@
         </select>
         <select id="pub-cat">
           <option value="">All categories</option>
-          <option>Books</option>
+          <option>Book</option>
           <option>Edited Volumes and Issues</option>
           <option>Articles and Chapters</option>
           <option>Blogposts</option>
@@ -64,7 +64,7 @@
       const USER_ID = 7858710;
 
       const ORDER = [
-        "Books",
+        "Book",
         "Edited Volumes and Issues",
         "Articles and Chapters",
         "Blogposts",
@@ -91,7 +91,7 @@
         const t = it.data.itemType;
         const has = (role) =>
           (it.data.creators || []).some((c) => c.creatorType === role);
-        if (t === "book" && has("author")) return "Books";
+        if (t === "book" && has("author")) return "Book";
         if (t === "book" && !has("author") && has("editor"))
           return "Edited Volumes and Issues";
         if (["journalArticle", "bookSection", "conferencePaper"].includes(t))

@@ -99,8 +99,8 @@ async function loadEvents() {
     .filter(e => e.date < today)
     .sort((a, b) => b.date - a.date);
 
-  // 3) Mindestens 6 Events zusammenstellen
-  const minCount = 6;
+  // 3) Mindestens 9 Events zusammenstellen
+  const minCount = 9;
   let toRender = upcoming.length >= minCount
     ? upcoming
     : upcoming.concat(past.slice(0, minCount - upcoming.length));

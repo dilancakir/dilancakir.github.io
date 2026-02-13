@@ -28,7 +28,7 @@ body {
 }
 
 /* Navigation */
-nav {
+nav:not(.cv-menu) {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   background-color: var(--nav-bg);
@@ -43,7 +43,7 @@ nav {
   z-index: 1000;
 }
 
-nav a {
+nav:not(.cv-menu) a {
   font-family: 'IBM Plex Mono', monospace;
   color: var(--text-color);
   text-decoration: none;
@@ -52,8 +52,8 @@ nav a {
   font-weight: 200;
 }
 
-nav a:hover,
-nav a:focus {
+nav:not(.cv-menu) a:hover,
+nav:not(.cv-menu) a:focus {
   color: var(--highlight-color);
   text-decoration: underline;
 }
@@ -145,7 +145,6 @@ nav a:focus {
   box-shadow: 0 4px 6px rgba(0,0,0,0.12);
   border: 3px solid rgba(255,255,255,0.7);
 }
-
 
 .hero-text {
   color: white;
@@ -628,6 +627,43 @@ html, body {
   .event-card {
     width: 100%;
   }
-  
+}
+
+/* CV-Menü (Inhaltsverzeichnis) */
+.cv-menu {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 24px;
+  border-radius: 0;
+}
+
+.cv-menu ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cv-menu li {
+  margin: 0;
+}
+
+.cv-menu a {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--divider-color);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.cv-menu a:hover {
+  border-color: var(--highlight-color);
+  color: var(--highlight-color);
+  text-decoration: none;
 }
 

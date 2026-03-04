@@ -293,7 +293,8 @@
         },
         {
           title: "KI und Kanon",
-          details: "[Keynote] Studierendenkongress 2026: Literatur und Digitalität",
+          details:
+            "[Keynote] Studierendenkongress 2026: Literatur und Digitalität",
           authors: "with Viktor Illmer",
           date: "2026-14-05",
           city: "Halle",
@@ -312,16 +313,17 @@
           lon: 0.1218,
         },
         {
-          title: "\"Zur Nachhaltigkeit des Einakters (1740–1850)\"",
-          details: "[Gastvortrag]  Ringvorlesung "Sustainable Forms",
+          title: '"Zur Nachhaltigkeit des Einakters (1740–1850)"',
+          details: "[Gastvortrag]  Ringvorlesung Sustainable Forms",
           date: "2026-03-12",
           city: "Bern",
           country: "CH",
           lat: 46.9481,
-          lon: 7.4474
-        }
+          lon: 7.4474,
+        },
         {
-          title: "Celebrity, Scandal, and a Political Murder (?): The Extraordinary Life of August von Kotzebue",
+          title:
+            "Celebrity, Scandal, and a Political Murder (?): The Extraordinary Life of August von Kotzebue",
           details: "Chalk Talks and Meal with CPDAs and Research Fellows",
           date: "2026-03-05",
           city: "Cambridge, UK",
@@ -330,7 +332,8 @@
           lon: 0.1218,
         },
         {
-          title: "[ACLA Seminar] Complaint, Queerness, and Killjoys: Engaging Sara Ahmed’s Theory",
+          title:
+            "[ACLA Seminar] Complaint, Queerness, and Killjoys: Engaging Sara Ahmed’s Theory",
           details: "American Comparative Literature Association Annual Meeting",
           authors: "with Alrik Daldrup",
           date: "2026-02-26",
@@ -340,7 +343,8 @@
           lon: -73.5674,
         },
         {
-          title: "[Gastvortrag] Kurdischsein in der deutschen Gegenwartsliteratur",
+          title:
+            "[Gastvortrag] Kurdischsein in der deutschen Gegenwartsliteratur",
           details: "Seminar Dr. Meryem Deniz",
           date: "2026-02-24",
           city: "Hanover",
@@ -947,7 +951,7 @@
       // ---- 2) Karte -------------------------------------------------------------
       const map = L.map("map", { zoomControl: false }).setView(
         [51.1657, 10.4515],
-        5
+        5,
       );
       L.control.zoom({ position: "topright" }).addTo(map);
       const tiles = L.tileLayer(
@@ -956,7 +960,7 @@
           maxZoom: 19,
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors',
-        }
+        },
       ).addTo(map);
 
       const cluster = L.markerClusterGroup({
@@ -991,13 +995,13 @@
             <div style="margin-top:6px;color:${
               future ? "#7ae582" : "#c6d4ff"
             }">${new Date(t.date).toLocaleDateString("de-DE", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}</div>
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}</div>
             <div style="opacity:.9">${t.city}${
-          t.country ? ", " + t.country : ""
-        }</div>
+              t.country ? ", " + t.country : ""
+            }</div>
             ${
               t.url
                 ? `<div style="margin-top:6px"><a href="${t.url}" target="_blank" rel="noopener">Link</a></div>`

@@ -18,7 +18,7 @@
 
 /* Grundlegendes Layout */
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Snans", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
@@ -29,7 +29,7 @@ body {
 
 /* Navigation */
 nav:not(.cv-menu) {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Snans', sans-serif;
   font-weight: 400;
   background-color: var(--nav-bg);
   color: var(--text-color);
@@ -44,7 +44,7 @@ nav:not(.cv-menu) {
 }
 
 nav:not(.cv-menu) a {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Snans', sans-serif;
   color: var(--text-color);
   text-decoration: none;
   margin: 5px 10px;
@@ -482,7 +482,7 @@ footer a:hover {
 .upcoming-events h2 {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Snans', sans-serif;
 }
 
 .event-grid {

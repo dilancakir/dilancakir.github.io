@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -82,7 +82,7 @@
           .map((c) =>
             c.name
               ? c.name
-              : [c.lastName, c.firstName].filter(Boolean).join(", ")
+              : [c.lastName, c.firstName].filter(Boolean).join(", "),
           )
           .filter(Boolean)
           .join("; ");
@@ -105,7 +105,7 @@
         const place = d.place || d.publisherPlace || d.eventPlace || "";
         const publisher = d.publisher || "";
         const editors = joinNames(
-          (d.creators || []).filter((c) => c.creatorType === "editor")
+          (d.creators || []).filter((c) => c.creatorType === "editor"),
         );
         const edStr = editors ? ` (ed. ${editors})` : "";
         const vol = d.volume ? ` ${d.volume}` : "";
@@ -114,9 +114,17 @@
 
         if (d.itemType === "journalArticle") {
           const journal = d.publicationTitle || "";
-          // Journal + evtl. (ed. …) für Sonderhefte
+          const year = yearOf(d);
+
+          const journalYear = year ? ` (${year})` : "";
+
+          const volumeIssue = d.volume
+            ? ` ${d.volume}${d.issue ? "/" + d.issue : ""}`
+            : "";
+
           return [
-            journal && `<em>${journal}</em>${edStr}${vol}${issue}${pages}`,
+            journal &&
+              `<em>${journal}</em>${edStr}${journalYear}${volumeIssue}${pages}`,
           ]
             .filter(Boolean)
             .join("");
@@ -178,16 +186,18 @@
         const d = it.data;
         const y = yearOf(d);
         const authors = joinNames(
-          (d.creators || []).filter((c) => c.creatorType === "author")
+          (d.creators || []).filter((c) => c.creatorType === "author"),
         );
         const editors = joinNames(
-          (d.creators || []).filter((c) => c.creatorType === "editor")
+          (d.creators || []).filter((c) => c.creatorType === "editor"),
         );
         const title = d.title || "(Untitled)";
         const link = d.DOI ? "https://doi.org/" + d.DOI : d.url || "";
         const venue = buildVenue(d);
         const extra = d.extra ? d.extra.trim() : "";
-        const yearStr = y ? ` · ${y}` : "";
+        const yearStr = y && d.itemType !== "journalArticle" ? ` · ${y}` : "";
+        const pagesStr =
+          d.itemType === "bookSection" && d.pages ? `, pp. ${d.pages}` : "";
         const extraStr = extra
           ? ` · <span class="pub-extra">${extra}</span>`
           : "";
@@ -210,7 +220,7 @@
           <li class="pub-item" data-year="${y}">
             <span class="pub-title">${titleWithEditors}</span>
             <span class="pub-meta">
-              ${metaParts.join(" — ")}${yearStr}${extraStr}
+              ${metaParts.join(" — ")}${yearStr}${pagesStr}${extraStr}
               ${
                 link
                   ? ` · <a class="pub-link" href="${link}" target="_blank" rel="noopener">${
@@ -241,7 +251,7 @@
                 .map((it) => renderItem(it, c))
                 .join("")}</ol>
             </section>
-          `
+          `,
             )
             .join("") || "<p>No entries.</p>";
         container.innerHTML = html;

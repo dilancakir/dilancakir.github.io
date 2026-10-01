@@ -180,7 +180,7 @@
       let years = [];
 
       // Rendering eines Items:
-      // - Autoren ohne Label
+      // - Autor*in ohne Label
       // - Editor:innen NICHT separat; sie erscheinen nur in Klammern bei Venue bzw. (bei reinen Herausgeberbänden) hinter dem Titel
       const renderItem = (it, cat) => {
         const d = it.data;
@@ -208,7 +208,7 @@
             ? `${title} <span class="pub-editors">(ed. ${editors})</span>`
             : title;
 
-        // Personenzeile: nur Autor:innen, ohne Label
+        // Personenzeile: nur Autor*innen, ohne Label
         const peopleLine = authors ? authors : "";
 
         // Metazeile zusammenbauen (ohne doppelte Editor-Nennung)

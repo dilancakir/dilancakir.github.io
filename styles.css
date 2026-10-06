@@ -158,7 +158,7 @@ nav:not(.cv-menu) a:focus {
 /* Auf größeren Bildschirmen Text linksbündig */
 @media (min-width: 700px) {
   .hero-text {
-    text-align: left;
+    text-align: center;
   }
   .hero-inner {
     justify-content: flex-start;
@@ -172,7 +172,8 @@ nav:not(.cv-menu) a:focus {
 
 .social-links a {
   font-size: 1em;
-  margin: 0 10px;
+  margin: 20px;
+  text-align: center;
   color: white;
   text-decoration: none;
   transition: color 0.3s;
